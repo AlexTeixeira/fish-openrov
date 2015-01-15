@@ -8,5 +8,3 @@
 
 ---- WEBSERVICE ---
 
-- je s'appel grout
-bite
