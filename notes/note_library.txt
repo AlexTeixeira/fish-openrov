@@ -7,4 +7,3 @@
 + Créer les objets Place et Fish en fonction des XML chargés en local
 
 ---- WEBSERVICE ---
-
