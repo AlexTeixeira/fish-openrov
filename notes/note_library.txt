@@ -1,0 +1,9 @@
+---- LIBRARY ---
+
++ Charge les fichiers XML contenu en local => XmlLoading()
++ Se connecte au webservice => Connecting()
++ Met à jour les fichiers contenu en local => Updating()
++ Met à jour les fichiers via le webservice => WebUpdating()
++ Créer les objets Place et Fish en fonction des XML chargés en local
+
+---- WEBSERVICE ---
