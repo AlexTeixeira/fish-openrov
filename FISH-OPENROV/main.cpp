@@ -3,8 +3,7 @@
 
 #include <QDebug>
 
-#include "model/place.h"
-#include "model/xmlobject.h"
+#include "model/webservice.h"
 
 int main(int argc, char *argv[])
 {

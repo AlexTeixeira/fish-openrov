@@ -1,10 +1,5 @@
 #include "xmlobject.h"
 
-XmlObject::XmlObject(QObject *parent) :
-    QObject(parent)
-{
-}
-
 XmlObject::XmlObject(int _id, QString _name, QString _path)
 {
     this->id = _id;

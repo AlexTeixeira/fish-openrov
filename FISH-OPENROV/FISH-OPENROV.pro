@@ -16,10 +16,14 @@ SOURCES += main.cpp\
     model/xmlobject.cpp \
     model/fish.cpp \
     model/place.cpp \
+    model/webservice.cpp \
+    model/library.cpp
 
 HEADERS  += mainwindow.h \
     model/xmlobject.h \
     model/fish.h \
-    model/place.h
+    model/place.h \
+    model/webservice.h \
+    model/library.h
 
 FORMS    += mainwindow.ui

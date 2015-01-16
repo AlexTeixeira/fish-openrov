@@ -5,9 +5,7 @@
 
 class XmlObject : public QObject
 {
-    Q_OBJECT
 public:
-    explicit XmlObject(QObject *parent = 0);
     XmlObject(int _id, QString _name, QString _path);
     
     int GetId();
@@ -25,12 +23,7 @@ public:
 private:
     int id;
     QString name;
-    QString path;
-    
-signals:
-    
-public slots:
-    
+    QString path;    
 };
 
 #endif // XMLOBJECT_H
