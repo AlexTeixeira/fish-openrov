@@ -16,7 +16,7 @@ public:
     Result *GetResult();
     
     void SetId(int _id);
-    void SetResult(Result _result);
+    void SetResult(Result *_result);
     
 private:
     int id;

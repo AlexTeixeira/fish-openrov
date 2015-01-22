@@ -22,6 +22,6 @@ void Processing::SetId(int _id) {
     this->id = _id;
 }
 
-void Processing::SetResult(Result _result) {
+void Processing::SetResult(Result* _result) {
     this->result = _result;
 }

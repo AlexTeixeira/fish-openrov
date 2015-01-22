@@ -2,6 +2,7 @@
 #define RESULT_H
 
 #include <QObject>
+#include <QDate>
 
 class Result : public QObject
 {
