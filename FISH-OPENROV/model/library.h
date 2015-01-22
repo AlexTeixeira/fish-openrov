@@ -2,6 +2,8 @@
 #define LIBRARY_H
 
 #include <QObject>
+#include <QList>
+#include "xmlobject.h"
 
 class Library : public QObject
 {
@@ -18,12 +20,14 @@ public:
     void SetName(QString _name);
     void SetXmlDirPath(QString _xmlDirPath);
     
-    void LoadXml();
+    QList<XmlObject> *LoadXmlLibrary();
+    void UpdateXmlLibrary();
     
 private:
     int id;
     QString name;
     QString xmlDirPath;
+    QList<XmlObject> *xmlLibrary;
     
 signals:
     

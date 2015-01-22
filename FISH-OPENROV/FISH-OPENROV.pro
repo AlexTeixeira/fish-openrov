@@ -17,13 +17,21 @@ SOURCES += main.cpp\
     model/fish.cpp \
     model/place.cpp \
     model/webservice.cpp \
-    model/library.cpp
+    model/library.cpp \
+    model/processing.cpp \
+    model/result.cpp \
+    model/frame.cpp \
+    model/video.cpp
 
 HEADERS  += mainwindow.h \
     model/xmlobject.h \
     model/fish.h \
     model/place.h \
     model/webservice.h \
-    model/library.h
+    model/library.h \
+    model/processing.h \
+    model/result.h \
+    model/frame.h \
+    model/video.h
 
 FORMS    += mainwindow.ui

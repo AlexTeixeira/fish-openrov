@@ -30,10 +30,14 @@ void Library::SetName(QString _name) {
     this->name = _name;
 }
 
-void SetXmlDirPath(QString _xmlDirPath) {
+void Library::SetXmlDirPath(QString _xmlDirPath) {
     this->xmlDirPath = _xmlDirPath;
 }
 
-void LoadXml() {
+QList<XmlObject>* Library::LoadXmlLibrary() {
+    return this->xmlLibrary;
+}
+
+void Library::UpdateXmlLibrary() {
     
 }

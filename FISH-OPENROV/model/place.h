@@ -16,8 +16,10 @@ public:
     int GetId();
     QString GetName();
     QList<Fish> *GetListFish();
+    
     void SetId(int _id);
     void SetName(QString _name);
+    void SetListFish(QList<Fish>* _listFish);
     
     void AddFish(Fish _fish);
     void UpdateFish(Fish _fish);

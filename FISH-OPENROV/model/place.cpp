@@ -34,6 +34,10 @@ void Place::SetName(QString _name) {
    this->name = _name;
 }
 
+void Place::SetListFish(QList<Fish>* _listFish) {
+    this->listFish = _listFish;
+}
+
 void Place::AddFish(Fish _fish) {
     
 }
