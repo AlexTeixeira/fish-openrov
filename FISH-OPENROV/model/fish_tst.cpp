@@ -31,16 +31,10 @@ void MyFirstUnitTest::testCase1_data()
     QTest::addColumn<int>("second");
     QTest::addColumn<int>("expected");
 
-    QTest::newRow("compare01") << 0 << 0 << 0;
-    QTest::newRow("compare02") << 5 << 10 << -1;
-    QTest::newRow("compare03") << 10 << 5 << 1;
-    QTest::newRow("compare04") << -5 << -10 << 1;
-    QTest::newRow("compare05") << -10 << -5 << -1;
-    QTest::newRow("compare06") << 5 << -10 << 1;
-    QTest::newRow("compare07") << -5 << 10 << -1;
-    QTest::newRow("compare08") << 2000000000 << 10 << 1;
-    QTest::newRow("compare09") << -10 << 2000000000 << -1;
-    QTest::newRow("compare10") << 10 << -2000000000 << 1;
+    QTest::newRow("compare01") << 0 << "premier" << "premier";
+    QTest::newRow("compare02") << 5 << "deuxieme" << "deuxieme";
+    QTest::newRow("compare03") << 10 << "troisieme" << "troisieme";
+
 }
 
 
@@ -48,7 +42,7 @@ void MyFirstUnitTest::testCase1_data()
 void MyFirstUnitTest::testCase1()
 {
     // changer le classe de l'objet classAtester
-    MyClass classAtester;
+    Fish classAtester = new Fish (first,second);
 
 
     // modifier les variables dans le tableau
@@ -57,12 +51,12 @@ void MyFirstUnitTest::testCase1()
     QFETCH(int, expected);
 
 
-    int actual = classAtester.compare(first, second); // la fonction à tester de classAtester
+    int actual = classAtester.GetName(); // la fonction à tester de classAtester
     QCOMPARE(actual, expected); // comparaison de resultat de teste avec resultat attendu
 
 }
 
 QTEST_APPLESS_MAIN(MyFirstUnitTest)
 
-#include "tst_myfirstunittest.moc"
+//#include "tst_myfirstunittest.moc"
 
