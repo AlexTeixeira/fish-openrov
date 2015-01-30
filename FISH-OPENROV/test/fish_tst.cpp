@@ -1,6 +1,6 @@
 #include <QString>
 #include <QtTest>
-#include "fish.h"
+#include "../model/fish.h"
 
 class MyFirstUnitTest : public QObject
 {
