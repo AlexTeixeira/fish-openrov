@@ -2,61 +2,45 @@
 #include <QtTest>
 #include "../model/fish.h"
 
-class MyFirstUnitTest : public QObject
+class FishTest : public QObject
 {
     Q_OBJECT
 
 public:
-    MyFirstUnitTest();
+    FishTest();
 
-    // les slots à utiliser pendant les tests
 private Q_SLOTS:
-    void testCase1_data();
-    void testCase1();
+    void testId();
+    void testName();
+    void testSize();
+    void testConstructor();
 };
 
-
-
-MyFirstUnitTest::MyFirstUnitTest()
+void FishTest::testId()
 {
+    Fish *f= new Fish();
+    f->SetId(1337);
+    QVERIFY(f->GetId() == 1337);
 }
 
-
-
-// les données pour le test
-
-void MyFirstUnitTest::testCase1_data()
+void FishTest::testName()
 {
-    QTest::addColumn<int>("first");
-    QTest::addColumn<int>("second");
-    QTest::addColumn<int>("expected");
-
-    QTest::newRow("compare01") << 0 << "premier" << "premier";
-    QTest::newRow("compare02") << 5 << "deuxieme" << "deuxieme";
-    QTest::newRow("compare03") << 10 << "troisieme" << "troisieme";
-
+    Fish *f= new Fish();
+    f->SetName("Nemo");
+    QVERIFY(f->GetName() == QString("Nemo"));
 }
 
-
-// fonction qui fait les testes
-void MyFirstUnitTest::testCase1()
+void FishTest::testSize()
 {
-    // changer le classe de l'objet classAtester
-    Fish classAtester = new Fish (first,second);
-
-
-    // modifier les variables dans le tableau
-    QFETCH(int, first);
-    QFETCH(int, second);
-    QFETCH(int, expected);
-
-
-    int actual = classAtester.GetName(); // la fonction à tester de classAtester
-    QCOMPARE(actual, expected); // comparaison de resultat de teste avec resultat attendu
-
+    Fish *f= new Fish();
+    f->SetSize(52.35);
+    QVERIFY(f->GetSize() == 52.35);
 }
 
-QTEST_APPLESS_MAIN(MyFirstUnitTest)
-
-//#include "tst_myfirstunittest.moc"
-
+void FishTest::testConstructor()
+{
+    Fish *f= new Fish(1337,"Nemo",52.35);
+    QVERIFY(f->GetId() == 1337);
+    QVERIFY(f->GetName() == QString("Nemo"));
+    QVERIFY(f->GetSize() == 52.35);
+}

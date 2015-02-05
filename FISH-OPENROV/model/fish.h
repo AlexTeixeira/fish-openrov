@@ -2,7 +2,7 @@
 #define FISH_H
 
 /*! 
- * \file Fish.h
+ * \file fish.h
  */
 
 #include <QObject>
@@ -16,12 +16,14 @@ class Fish : public QObject
 {
     Q_OBJECT
 public:
+    
     /*!
      *  \brief Constructeur
      *      Constructeur de la classe Fish
      *  \param parent : Objet parent
      */
     explicit Fish(QObject *parent = 0);
+    
     /*!
      *  \brief Constructeur
      *      Constructeur de la classe Fish
@@ -54,7 +56,7 @@ public:
     
     /*!
      *  \brief SetId()
-     *      Méthode qui permet de setter la taille d'un poisson
+     *      Méthode qui permet de setter l'id d'un poisson
      *  \param int _id : id du poisson
      */
     void SetId (int _id);
