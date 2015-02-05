@@ -6,6 +6,7 @@
  */
 
 #include <QObject>
+#include <QtXml>
 
 /*! 
  * \class XmlObject xmlobject.h
@@ -63,19 +64,35 @@ public:
     /*!
      *  \brief SetPath()
      *      Méthode qui permet de setter le chemin d'un xml
-     *  \param QString _name : chemin du xml
+     *  \param QString _path : chemin du xml
      */
     void SetPath(QString _path);
     
+    /*!
+     *  \brief Load()
+     *      Méthode qui permet de charger un Xml
+     *  \param QString _path : chemin du xml
+     */
     void Load();
-    void Read();
+    
+    /*!
+     *  \brief ReadAllFish()
+     *      Fonction qui permet de récupérer tous les poissons dans un fichier xml
+     *  \return QList<QMap<QString, QString> > retourne une liste de tableau associatif
+     *  contenant les attributs et les valeurs du xml
+     */
+    QList<QMap<QString, QString> > ReadAllFish();
+    
     void Update();
     void Delete();
     
 private:
     int id;
     QString name;
-    QString path;    
+    QString path;
+    
+    QDomDocument *domDoc;
+    QFile *file;
 };
 
 #endif // XMLOBJECT_H
