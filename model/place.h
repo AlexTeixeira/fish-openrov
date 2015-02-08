@@ -78,9 +78,8 @@ public:
      *  \brief UpdateFish();
      *      Méthode qui permet de mettre à un poisson dans la liste de poisson
      *  \param Fish _fish : un poisson
-     *  \param int pos : La position du poisson dans la liste
      */
-    void UpdateFish(Fish _fish, int pos);
+    void UpdateFish(Fish _fish);
 
     /*!
      *  \brief DeleteFish();
