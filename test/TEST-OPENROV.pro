@@ -15,7 +15,17 @@ TEMPLATE = app
 
 SOURCES += main_tst.cpp \
         fish_tst.cpp \
-        ../model/fish.cpp
+        frame_tst.cpp \
+        ../model/fish.cpp \
+        ../model/place.cpp \
+        ../model/processing.cpp \
+        ../model/video.cpp \
+        ../model/frame.cpp
 
 HEADERS  += fish_tst.h \
-        ../model/fish.h
+        frame_tst.h \
+        ../model/fish.h \
+        ../model/place.h \
+        ../model/processing.h \
+        ../model/video.h \
+        ../model/frame.h
