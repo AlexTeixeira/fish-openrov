@@ -20,7 +20,8 @@ SOURCES += main_tst.cpp \
         ../model/place.cpp \
         ../model/processing.cpp \
         ../model/video.cpp \
-        ../model/frame.cpp
+        ../model/frame.cpp \
+    video_tst.cpp
 
 HEADERS  += fish_tst.h \
         frame_tst.h \
@@ -28,4 +29,5 @@ HEADERS  += fish_tst.h \
         ../model/place.h \
         ../model/processing.h \
         ../model/video.h \
-        ../model/frame.h
+        ../model/frame.h \
+    video_tst.h

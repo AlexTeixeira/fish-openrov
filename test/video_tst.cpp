@@ -1,19 +1,12 @@
-//#include "../model/video.h"
-//#include <QTest>
-//#include <Qstring>
+#include "video_tst.h"
 
-//class TestVideo : public QObject
-//{
-//    Q_OBJECT
+video_tst::video_tst(QObject *parent) : QObject(parent)
+{
 
-//public:
-//    VideoUnitTest();
+}
 
-// les slots à utiliser pendant les tests
-//private Q_SLOTS:
-//    void testCase1_data();
-//    void testCase1();
-//};
+video_tst::~video_tst()
+{
 
-//QTEST_MAIN(TestVideo)
-//#include "testvideo.moc"
+}
+
