@@ -1,18 +1,29 @@
 #ifndef VIDEO_TST_H
 #define VIDEO_TST_H
-
 #include <QObject>
+#include <QtTest/QtTest>
+#include <QString>
+#include "../model/video.h"
 
-class video_tst : public QObject
+class VideoTest : public QObject
 {
     Q_OBJECT
 public:
-    explicit video_tst(QObject *parent = 0);
-    ~video_tst();
+    
+    explicit VideoTest(QObject *parent = 0);
 
-signals:
+private:
 
-public slots:
+    Video *v1;
+    Video *v2;
+
+private slots:
+
+    void initTestCase();
+    void testId();
+    void testName();
+    void testListFrame();
+    void cleanupTestCase();
+
 };
-
 #endif // VIDEO_TST_H
