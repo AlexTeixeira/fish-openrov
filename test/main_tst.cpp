@@ -4,6 +4,7 @@
 #include <frame_tst.h>
 #include <result_tst.h>
 #include <video_tst.h>
+#include <place_tst.h>
 
 int main()
 {
@@ -15,4 +16,6 @@ int main()
     QTest::qExec(&rst);
     VideoTest vit;
     QTest::qExec(&vit);
+    PlaceTest plt;
+    QTest::qExec(&plt);
 }

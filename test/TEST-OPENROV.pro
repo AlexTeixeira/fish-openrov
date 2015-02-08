@@ -27,7 +27,8 @@ SOURCES += main_tst.cpp \
         ../model/webservice.cpp \
         ../model/xmlobject.cpp \
         ../model/frame.cpp \
-    video_tst.cpp
+    video_tst.cpp \
+    place_tst.cpp
 
 HEADERS  += fish_tst.h \
         frame_tst.h \
@@ -41,4 +42,5 @@ HEADERS  += fish_tst.h \
         ../model/webservice.h \
         ../model/xmlobject.h \
         ../model/frame.h \
-    video_tst.h
+    video_tst.h \
+    place_tst.h

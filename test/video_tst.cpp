@@ -34,7 +34,7 @@ void VideoTest::testListFrame()
 
     Frame *f3 = new Frame(3,"name fish");
     v1->SetListFrame(new QList<Frame>());
-    //        v1->AddFrame(f3);
+     //       v1->AddFrame(f3);
 
 
 }
