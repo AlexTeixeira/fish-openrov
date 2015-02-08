@@ -1,6 +1,8 @@
 #include <QtTest/QtTest>
+#include <QDebug>
 #include <fish_tst.h>
 #include <frame_tst.h>
+#include <result_tst.h>
 
 int main()
 {
@@ -8,4 +10,6 @@ int main()
     QTest::qExec(&fit);
     FrameTest frt;
     QTest::qExec(&frt);
+    ResultTest rst;
+    QTest::qExec(&rst);
 }
