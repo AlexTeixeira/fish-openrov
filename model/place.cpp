@@ -39,13 +39,13 @@ void Place::SetListFish(QList<Fish>* _listFish) {
 }
 
 void Place::AddFish(Fish _fish) {
-    this->listFish->append(_fish);
+    
 }
 
-void Place::UpdateFish(Fish _fish, int pos) {
-    this->listFish->at(pos) = _fish;
+void Place::UpdateFish(Fish _fish) {
+    
 }
 
 void Place::DeleteFish(Fish _fish) {
-    this->listFish->removeAt(this->listFish->indexOf(_fish));
+    
 }
