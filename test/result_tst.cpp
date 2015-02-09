@@ -31,6 +31,8 @@ void ResultTest::testDate()
     r1->SetDate(date);
     QVERIFY(r1->GetDate().isValid());
     QVERIFY(r2->GetDate().isValid());
+    QCOMPARE(r1->GetDate().day(), 16);
+    QCOMPARE(r2->GetDate().day(), 8);
     QCOMPARE(r1->GetDate().month(), 5);
     QCOMPARE(r2->GetDate().month(), 2);
     QCOMPARE(r1->GetDate().year(), 2002);
