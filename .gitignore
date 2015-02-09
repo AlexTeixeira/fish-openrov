@@ -33,8 +33,3 @@ object_script*
 #QtCtreator Qml
 *.qmlproject.user
 *.qmlproject.user.*
-build-FISH-OPENROV-Desktop_Qt_5_4_0_clang_64bit-Debug/.qmake.stash
-build-FISH-OPENROV-Desktop_Qt_5_4_0_clang_64bit-Debug/FISH-OPENROV.app/Contents/Info.plist
-build-FISH-OPENROV-Desktop_Qt_5_4_0_clang_64bit-Debug/FISH-OPENROV.app/Contents/PkgInfo
-build-FISH-OPENROV-Desktop_Qt_5_4_0_clang_64bit-Debug/FISH-OPENROV.app/Contents/MacOS/FISH-OPENROV
-build-FISH-OPENROV-Desktop_Qt_5_4_0_clang_64bit-Debug/FISH-OPENROV.app/Contents/Resources/empty.lproj
