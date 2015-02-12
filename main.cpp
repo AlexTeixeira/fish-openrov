@@ -2,6 +2,7 @@
 #include <QApplication>
 
 #include <QDebug>
+#include "model/library.h"
 
 int main(int argc, char *argv[])
 {

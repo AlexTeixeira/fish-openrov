@@ -34,7 +34,7 @@ void Library::SetXmlDirPath(QString _xmlDirPath) {
     this->xmlDirPath = _xmlDirPath;
 }
 
-QList<XmlObject>* Library::LoadXmlLibrary() {
+QList<XmlObject> Library::LoadXmlLibrary() {
     return this->xmlLibrary;
 }
 

@@ -79,7 +79,7 @@ public:
      *     ??
      *  \return QList<XmlObject>
      */
-    QList<XmlObject> *LoadXmlLibrary();
+    QList<XmlObject> LoadXmlLibrary();
 
 
     /*!
@@ -92,7 +92,7 @@ private:
     int id;
     QString name;
     QString xmlDirPath;
-    QList<XmlObject> *xmlLibrary;
+    QList<XmlObject> xmlLibrary;
     
 signals:
     
