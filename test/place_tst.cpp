@@ -10,6 +10,8 @@ void PlaceTest::initTestCase()
 {
 
         p1 = new Place();
+        p2 = new Place(13,"new place");
+
     //    p2 = new Place (3,"video name");
 }
 
@@ -32,29 +34,40 @@ void PlaceTest::testId_data()
 }
 void PlaceTest::testName()
 {
-        QFETCH(QString, aString);
-        p1->SetName(aString);
-        QTEST(p1->GetName(), "aString");
+        QFETCH(QString, aName);
+        p1->SetName(aName);
+        QTEST(p1->GetName(), "aName");
 }
 
+void PlaceTest::testName_data()
+{
+    QTest::addColumn<QString>("aName");
+    QTest::newRow("string without spaces") << "FishDeListe";
+    QTest::newRow("string with spaces") << "Fish De Liste";
+    QTest::newRow("string with special characters") << "F15h de l1%^57e /!%K";
+}
 
 
 void PlaceTest::testListFish()
 {
+    QFETCH(QString, aNameFish);
+    Fish * f2= new Fish(4,"FishDeListe",74.3);
+    p2->AddFish(f2);
+    QTEST(p2->GetListFish().takeFirst()->GetName(),"aNameFish");
+}
 
-<<<<<<< HEAD
-    Fish *f3 = new Fish(3,"name fish",54.32);
-    p1->SetListFish(new QList<Fish>());
-           //p1->AddFish(f3);
-=======
-   // Fish *f3 = new Fish(3,"name fish",54.32);
-   // p1->SetListFish(new QList<Fish>());
-   //        p1->AddFish(f3);
->>>>>>> f96e79913c3699b43beb758a1cfd930c2f713c74
+void PlaceTest::testListFish_data()
+{
+    QTest::addColumn<QString>("aNameFish");
+    QTest::newRow("string without spaces") << "FishDeListe";
+ //   QTest::newRow("string with spaces") << "Fish De Liste";
+ //   QTest::newRow("string with special characters") << "F15h de l1%^57e /!%K";
+
 }
 
 void PlaceTest::cleanupTestCase()
 
 {
     delete p1;
+    delete p2;
 }

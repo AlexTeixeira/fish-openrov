@@ -43,7 +43,7 @@ public:
      *      Fonction qui permet de récupérer une liste de poisson
      *  \return QList<Fish>
      */
-    QList<Fish> *GetListFish();
+    QList<Fish*> GetListFish();
     
     /*!
      *  \brief SetId()
@@ -64,7 +64,7 @@ public:
      *      Méthode qui permet de setter une liste de poisson
      *  \param QList<Fish>* _listFish : liste de poisson
      */
-    void SetListFish(QList<Fish>* _listFish);
+    void SetListFish(QList<Fish*> _listFish);
     
 
     /*!
@@ -72,7 +72,7 @@ public:
      *      Méthode qui permet d'ajouter un poisson à la liste de poisson
      *  \param Fish _fish : un poisson
      */
-    void AddFish(Fish _fish);
+    void AddFish(Fish * _fish);
 
     /*!
      *  \brief UpdateFish();
@@ -91,7 +91,7 @@ public:
 private:
     int id;
     QString name;
-    QList<Fish> *listFish;
+    QList<Fish*> listFish;
     
 signals:
     

@@ -14,6 +14,7 @@ public:
 private:
 
     Place *p1;
+    Place *p2;
 
 private slots:
 
@@ -23,6 +24,7 @@ private slots:
     void testName();
     void testName_data();
     void testListFish();
+    void testListFish_data();
     void cleanupTestCase();
 
 };
