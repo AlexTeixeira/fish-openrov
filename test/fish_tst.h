@@ -16,14 +16,16 @@ public:
 private:
 
     Fish *f1;
-    Fish *f2;
 
 private slots:
 
     void initTestCase();
     void testId();
+    void testId_data();
     void testName();
+    void testName_data();
     void testSize();
+    void testSize_data();
     void cleanupTestCase();
 
 };

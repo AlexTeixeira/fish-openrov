@@ -8,32 +8,51 @@ FishTest::FishTest(QObject *parent) :
 void FishTest::initTestCase()
 {
     f1 = new Fish();
-    f2 = new Fish(666, "Red", 16.23);
 }
 
 void FishTest::testId()
 {
-    f1->SetId(1337);
-    QVERIFY(f1->GetId() == 1337);
-    QVERIFY(f2->GetId() == 666);
+    // Pattern Unit Test
+    QFETCH(int, anId);
+    f1->SetId(anId);
+    QTEST(f1->GetId(), "anId");
+}
+
+void FishTest::testId_data()
+{
+    QTest::addColumn<int>("anId");
+    QTest::newRow("integer") << 154;
 }
 
 void FishTest::testName()
 {
-    f1->SetName("Nemo");
-    QVERIFY(f1->GetName() == QString("Nemo"));
-    QVERIFY(f2->GetName() == QString("Red"));
+    QFETCH(QString, aString);
+    f1->SetName(aString);
+    QTEST(f1->GetName(), "aString");
+}
+
+void FishTest::testName_data()
+{
+    QTest::addColumn<QString>("aString");
+    QTest::newRow("string without spaces") << "TestName";
+    QTest::newRow("string with spaces") << "Test Name";
+    QTest::newRow("string with special characters") << "Test Name /!%K";
 }
 
 void FishTest::testSize()
 {
-    f1->SetSize(52.35);
-    QVERIFY(f1->GetSize() == 52.35);
-    QVERIFY(f2->GetSize() == 16.23);
+    QFETCH(double, aDouble);
+    f1->SetSize(aDouble);
+    QTEST(f1->GetSize(), "aDouble");
+}
+
+void FishTest::testSize_data()
+{
+    QTest::addColumn<double>("aDouble");
+    QTest::newRow("double") << 154.05;
 }
 
 void FishTest::cleanupTestCase()
 {
     delete f1;
-    delete f2;
 }

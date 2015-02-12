@@ -3,11 +3,14 @@
 #include <QObject>
 #include <QtTest/QtTest>
 #include <QString>
+#include <QList>
+#include "../model/frame.h"
 #include "../model/video.h"
 
 class VideoTest : public QObject
 {
     Q_OBJECT
+
 public:
     
     explicit VideoTest(QObject *parent = 0);

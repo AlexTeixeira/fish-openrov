@@ -28,5 +28,4 @@ private slots:
     void cleanupTestCase();
 
 };
-
 #endif // PROCESSING_TST_H
