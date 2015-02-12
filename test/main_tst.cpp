@@ -1,11 +1,11 @@
 #include <QtTest/QtTest>
 #include <QDebug>
-#include <fish_tst.h>
-#include <frame_tst.h>
-#include <result_tst.h>
-#include <video_tst.h>
-#include <place_tst.h>
-#include <processing_tst.h>
+#include "fish_tst.h"
+#include "frame_tst.h"
+#include "result_tst.h"
+#include "video_tst.h"
+#include "place_tst.h"
+#include "processing_tst.h"
 
 int main()
 {
