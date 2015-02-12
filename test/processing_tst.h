@@ -18,13 +18,14 @@ public:
 private:
 
     Processing *p1;
-    Processing *p2;
 
 private slots:
 
     void initTestCase();
     void testId();
+    void testId_data();
     void testResult();
+    void testResult_data();
     void cleanupTestCase();
 
 };
