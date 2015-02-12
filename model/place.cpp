@@ -11,7 +11,7 @@ Place::Place(int _id, QString _name)
     this->id = _id;
     this->name = _name;
     
-    this->listFish = new QList<Fish>();
+    //this->listFish = new QList<Fish>();
 }
 
 int Place::GetId() {
@@ -22,7 +22,7 @@ QString Place::GetName() {
     return this->name;
 }
 
-QList<Fish>* Place::GetListFish() {
+QList<Fish> Place::GetListFish() {
     return this->listFish;
 }
 
@@ -34,18 +34,30 @@ void Place::SetName(QString _name) {
    this->name = _name;
 }
 
-void Place::SetListFish(QList<Fish>* _listFish) {
+void Place::SetListFish(QList<Fish> _listFish) {
     this->listFish = _listFish;
 }
 
 void Place::AddFish(Fish _fish) {
-    this->listFish->append(_fish);
+    this->listFish.append(_fish);
 }
 
 void Place::UpdateFish(Fish _fish, int pos) {
-    this->listFish->at(pos) = _fish;
+    this->listFish[pos] = _fish;
 }
 
 void Place::DeleteFish(Fish _fish) {
-    this->listFish->removeAt(this->listFish->indexOf(_fish));
+    int pos = this->GetPosByFish(_fish);
+    if (pos > -1) {
+        this->listFish.removeAt(pos);   
+    }
+}
+
+int Place::GetPosByFish(Fish _fish) {
+    for (int i = 0; i < this->listFish.size(); i++) {
+        if(this->listFish[i].GetId() == _fish.GetId()) {
+            return i;
+        }
+    }
+    return -1;
 }

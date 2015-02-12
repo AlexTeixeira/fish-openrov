@@ -23,10 +23,7 @@ SOURCES += main.cpp\
     model/processing.cpp \
     model/result.cpp \
     model/frame.cpp \
-    model/video.cpp \
-    test/fish_tst.cpp \
-    test/frame_tst.cpp \
-    test/video_tst.cpp
+    model/video.cpp
 
 HEADERS  += mainwindow.h \
     model/xmlobject.h \

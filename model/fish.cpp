@@ -1,10 +1,5 @@
 #include "fish.h"
 
-Fish::Fish(QObject *parent) :
-    QObject(parent)
-{
-}
-
 Fish::Fish(int _id, QString _name, double _size)
 {
     this->id = _id;

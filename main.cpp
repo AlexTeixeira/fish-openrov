@@ -3,8 +3,6 @@
 
 #include <QDebug>
 
-#include "model/webservice.h"
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

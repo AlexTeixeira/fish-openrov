@@ -5,24 +5,17 @@
  * \file fish.h
  */
 
-#include <QObject>
+#include <QString>
 
 /*! 
  * \class Fish fish.h
  * \brief Classe retprésentant un poisson
  */
 
-class Fish : public QObject
+class Fish
 {
-    Q_OBJECT
+
 public:
-    
-    /*!
-     *  \brief Constructeur
-     *      Constructeur de la classe Fish
-     *  \param parent : Objet parent
-     */
-    explicit Fish(QObject *parent = 0);
     
     /*!
      *  \brief Constructeur
@@ -79,10 +72,6 @@ private:
     int id;
     QString name;
     double size;
-    
-signals:
-    
-public slots:
     
 };
 
