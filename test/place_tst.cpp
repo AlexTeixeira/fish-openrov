@@ -34,7 +34,7 @@ void PlaceTest::testListFish()
 
     Fish *f3 = new Fish(3,"name fish",54.32);
     p1->SetListFish(new QList<Fish>());
-           p1->AddFish(f3);
+           //p1->AddFish(f3);
 }
 
 void PlaceTest::cleanupTestCase()
