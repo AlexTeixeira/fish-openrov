@@ -10,21 +10,31 @@ void PlaceTest::initTestCase()
 {
 
         p1 = new Place();
-        p2 = new Place (3,"video name");
+    //    p2 = new Place (3,"video name");
 }
 
 void PlaceTest::testId()
 {
+        QFETCH(int, anId);
+        p1->SetId(anId);
+        QTEST(p1->GetId(), "anId");
+
+        /* ancien version
         p1->SetId(4579);
         QVERIFY(p1->GetId()==4579);
-        QVERIFY(p2->GetId()==3);
+        QVERIFY(p2->GetId()==3);*/
 }
 
+void PlaceTest::testId_data()
+{
+        QTest::addColumn<int>("anId");
+        QTest::newRow("integer") << 154;
+}
 void PlaceTest::testName()
 {
-        p1->SetName("p1");
-        QVERIFY(p1->GetName()=="p1");
-        QVERIFY(p2->GetName()=="video name");
+        QFETCH(QString, aString);
+        p1->SetName(aString);
+        QTEST(p1->GetName(), "aString");
 }
 
 
@@ -32,14 +42,13 @@ void PlaceTest::testName()
 void PlaceTest::testListFish()
 {
 
-    Fish *f3 = new Fish(3,"name fish",54.32);
-    p1->SetListFish(new QList<Fish>());
-           p1->AddFish(f3);
+   // Fish *f3 = new Fish(3,"name fish",54.32);
+   // p1->SetListFish(new QList<Fish>());
+   //        p1->AddFish(f3);
 }
 
 void PlaceTest::cleanupTestCase()
 
 {
     delete p1;
-    delete p2;
 }
