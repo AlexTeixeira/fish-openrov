@@ -57,16 +57,17 @@ void Library::LoadXmlLibrary() {
 void Library::LoadXmlContent() {
     // Parcours de la librairyXml
     for (int var = 0; var < this->xmlLibrary.size(); ++var) {
-        this->xmlLibrary.at(var)->setListMap(this->xmlLibrary.at(var)->GetElementAttributesValue(this->xmlLibrary.at(var)->GetDomDoc()->firstChild(), "place"));
+        
+        QList<QMap<QString, QString> *> *listPlace = this->xmlLibrary.at(var)->GetElementAttributesValue(this->xmlLibrary.at(var)->GetDomDoc()->firstChild(), "place");
         // Envoi de la QList dans la factory afin de créer les PLACE
-        for (int var2 = 0; var2 < this->xmlLibrary.at(var)->getListMap()->size(); ++var2) {
-            qDebug() << *this->xmlLibrary.at(var)->getListMap()->at(var2);
+        for (int var2 = 0; var2 < listPlace->size(); ++var2) {
+            qDebug() << *listPlace->at(var2);
         }
         
-        this->xmlLibrary.at(var)->setListMap(this->xmlLibrary.at(var)->GetChildElementValues(this->xmlLibrary.at(var)->GetDomDoc()->firstChild(), "fish"));
+        QList<QMap<QString, QString> *> *listFish = this->xmlLibrary.at(var)->GetChildElementValues(this->xmlLibrary.at(var)->GetDomDoc()->firstChild(), "fish");
         // Envoi de la QList dans la factory afin de créer les FISH
-        for (int var2 = 0; var2 < this->xmlLibrary.at(var)->getListMap()->size(); ++var2) {
-            qDebug() << *this->xmlLibrary.at(var)->getListMap()->at(var2);
+        for (int var2 = 0; var2 < listFish->size(); ++var2) {
+            qDebug() << *listFish->at(var2);
         }
     }
     

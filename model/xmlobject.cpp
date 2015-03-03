@@ -23,10 +23,6 @@ QDomDocument* XmlObject::GetDomDoc() {
     return this->domDoc;
 }
 
-QList<QMap<QString, QString> *> *XmlObject::getListMap() {
-    return listMap;
-}
-
 void XmlObject::SetId(int _id) {
     this->id = _id;
 }
@@ -37,10 +33,6 @@ void XmlObject::SetPath(QString _path) {
 
 void XmlObject::SetName(QString _name) {
     this->name = _name;
-}
-
-void XmlObject::setListMap(QList<QMap<QString, QString> *>* _listMap) {
-    listMap = _listMap;
 }
 
 void XmlObject::Load() {

@@ -116,7 +116,7 @@ private:
     QString name;
     QString xmlDirPath;
     QList<QString> listFullPath;
-    QList<XmlObject*> xmlLibrary; 
+    QList<XmlObject*> xmlLibrary;
     
 signals:
     

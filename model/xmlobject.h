@@ -51,13 +51,6 @@ public:
      *  \return QDomDocument
      */
     QDomDocument *GetDomDoc();
-    
-    /*!
-     * \brief
-     *      Fonction qui permet de récupérer la listMap d'un XmlObject
-     * \return QList<QMap<QString, QString> >
-     */
-    QList<QMap<QString, QString>* > *getListMap();
 
     /*!
      *  \brief SetId()
@@ -79,13 +72,6 @@ public:
      *  \param QString _path : chemin du xml
      */
     void SetPath(QString _path);
-    
-    /*!
-     *  \brief setListMap()
-     *      Méthode qui permet de setter la listMap d'un XmlObject
-     *  \param QString _path : chemin du xml
-     */
-    void setListMap(QList<QMap<QString, QString> *>* _listMap);
     
     /*!
      *  \brief Load()
@@ -207,7 +193,7 @@ private:
     
     QDomDocument *domDoc;
     QFile *file;
-    QList<QMap<QString, QString>* > *listMap;
+    //QList<QMap<QString, QString>* > *listMap;
 };
 
 #endif // XMLOBJECT_H
