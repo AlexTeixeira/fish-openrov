@@ -52,6 +52,15 @@ public:
      *
      */
     QString GetXmlDirPath();
+
+    /*!
+     *
+     * \brief GetListFullPath()
+     *      Function qui retourne la liste des fichiers chargés
+     * \return Qist<Qstring>
+     *
+     */
+    QList<QString> GetListFullPath();
     
     /*!
      *  \brief SetId()
@@ -76,23 +85,38 @@ public:
     
     /*!
      *  \brief LoadXmlLibrary();
-     *     ??
+     *      Méthode permettant de charger chaque fichier xml et de créer un XmlObject
+     *      lui correspondant.
+     */
+    void LoadXmlLibrary();
+    
+    /*!
+     *  \brief LoadXmlContent();
+     *      
      *  \return QList<XmlObject>
      */
-    QList<XmlObject> LoadXmlLibrary();
-
+    void LoadXmlContent();
 
     /*!
      *  \brief UpdateXmlLibrary();
      *     ??
      */
     void UpdateXmlLibrary();
+
+    /*!
+     *  \brief getFullPathFile();
+     *     ??
+     */
+    void GetFullPathFiles(QDir rootDir, QString extension);
+    
+    
     
 private:
     int id;
     QString name;
     QString xmlDirPath;
-    QList<XmlObject> xmlLibrary;
+    QList<QString> listFullPath;
+    QList<XmlObject*> xmlLibrary; 
     
 signals:
     
