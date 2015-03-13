@@ -25,22 +25,41 @@ void ProcessingTest::testId_data()
 
 void ProcessingTest::testResult()
 {
-    Result *r1 = new Result(123, "Antibes-Salis", QDate(2013, 2, 8), "Observation 1");
-    p1->SetResult(r1);
-    QVERIFY(p1->GetResult()->GetId() == 123);
-    QVERIFY(p1->GetResult()->GetName() == QString("Antibes-Salis"));
-    QVERIFY(p1->GetResult()->GetDate().isValid());
-    QCOMPARE(p1->GetResult()->GetDate().day(), 8);
-    QCOMPARE(p1->GetResult()->GetDate().month(), 2);
-    QCOMPARE(p1->GetResult()->GetDate().year(), 2013);
-    QVERIFY(p1->GetResult()->GetDescription() == QString("Observation 1"));
+    Result *result = new Result();
+
+    QFETCH(int, anId);
+    result->SetId(anId);
+
+    QFETCH(QString, aString);
+    result->SetName(aString);
+
+    QFETCH(QDate, aDate);
+    result->SetDate(aDate);
+
+    QFETCH(QString, aString2);
+    result->SetDescription(aString2);
+
+    p1->SetResult(result);
+
+    QTEST(p1->GetResult()->GetId(), "anId");
+    QTEST(p1->GetResult()->GetName(), "aString");
+    QTEST(p1->GetResult()->GetDate(), "aDate");
+    QTEST(p1->GetResult()->GetDescription(), "aString2");
+
 }
 
 void ProcessingTest::testResult_data()
 {
-    //Result *r1 = new Result(123, "Antibes-Salis", QDate(2013, 2, 8), "Observation 1");
-    QTest::addColumn<Result>("r1");
-    Result r1;
+    QTest::addColumn<int>("anId");
+    //QTest::newRow("integer") << 4587;
+    QTest::addColumn<QString>("aString");
+    //QTest::newRow("QString") << "Antibes-Salis";
+    QTest::addColumn<QDate>("aDate");
+   // QTest::newRow("QDate") << QDate(2013, 2, 8);
+    QTest::addColumn<QString>("aString2");
+    //QTest::newRow("QString") << "Observation 1";
+
+   QTest::newRow("ResultTest") << 1 << "Antibes-Salis" << QDate(2013, 2, 8) << "Observation 1";
 }
 
 void ProcessingTest::cleanupTestCase()
