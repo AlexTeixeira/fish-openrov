@@ -13,37 +13,53 @@ void ResultTest::initTestCase()
 
 void ResultTest::testId()
 {
-    r1->SetId(456);
-    QVERIFY(r1->GetId() == 456);
-    QVERIFY(r2->GetId() == 123);
+    QFETCH(int, anId);
+    r1->SetId(anId);
+    QTEST(r1->GetId(), "anId");
 }
+
+void ResultTest::testId_data()
+{
+    QTest::addColumn<int>("anId");
+    QTest::newRow("integer") << 4587;
+}
+
 
 void ResultTest::testName()
 {
-    r1->SetName("New Result 025");
-    QVERIFY(r1->GetName() == QString("New Result 025"));
-    QVERIFY(r2->GetName() == QString("Antibes-Salis"));
+    QFETCH(QString, aString);
+    r1->SetName(aString);
+    QTEST(r1->GetName(), "aString");
+}
+
+void ResultTest::testName_data()
+{
+    QTest::addColumn<QString>("aString");
+    QTest::newRow("QString") << "Observation 1";
 }
 
 void ResultTest::testDate()
 {
-    QDate date( 2002, 5, 16 );
-    r1->SetDate(date);
-    QVERIFY(r1->GetDate().isValid());
-    QVERIFY(r2->GetDate().isValid());
-    QCOMPARE(r1->GetDate().day(), 16);
-    QCOMPARE(r2->GetDate().day(), 8);
-    QCOMPARE(r1->GetDate().month(), 5);
-    QCOMPARE(r2->GetDate().month(), 2);
-    QCOMPARE(r1->GetDate().year(), 2002);
-    QCOMPARE(r2->GetDate().year(), 2015);
+    QFETCH(QDate, aDate);
+    r1->SetDate(aDate);
+    QTEST(r1->GetDate(), "aDate");
+}
+
+void ResultTest::testDate_data(){
+    QTest::addColumn<QDate>("aDate");
+    QTest::newRow("QDate") << QDate(2015, 2, 8);
 }
 
 void ResultTest::testDescription()
 {
-    r1->SetDescription("New Observation 345");
-    QVERIFY(r1->GetDescription() == QString("New Observation 345"));
-    QVERIFY(r2->GetDescription() == QString("Observation 1"));
+    QFETCH(QString, aString);
+    r1->SetName(aString);
+    QTEST(r1->GetName(), "aString");
+}
+
+void ResultTest::testDescription_data(){
+    QTest::addColumn<QString>("aString");
+    QTest::newRow("QString") << "Jours Pluvieux";
 }
 
 void ResultTest::cleanupTestCase()

@@ -13,16 +13,28 @@ void FrameTest::initTestCase()
 
 void FrameTest::testId()
 {
-    f1->SetId(1337);
-    QVERIFY(f1->GetId() == 1337);
-    QVERIFY(f2->GetId() == 42);
+    QFETCH(int, anId);
+    f1->SetId(anId);
+    QTEST(f1->GetId(), "anId");
+
+}
+
+void FrameTest::testId_data()
+{
+    QTest::addColumn<int>("anId");
+    QTest::newRow("integer") << 4587;
 }
 
 void FrameTest::testName()
 {
-    f1->SetName("TestFrame");
-    QVERIFY(f1->GetName() == QString("TestFrame"));
-    QVERIFY(f2->GetName() == QString("FishFrame"));
+    QFETCH(QString, aString);
+    f1->SetName(aString);
+    QTEST(f1->GetName(), "aString");
+}
+
+void FrameTest::testName_data(){
+    QTest::addColumn<QString>("aString");
+    QTest::newRow("QString") << "nameFrame";
 }
 
 void FrameTest::cleanupTestCase()
