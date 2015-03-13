@@ -51,13 +51,9 @@ void ProcessingTest::testResult()
 void ProcessingTest::testResult_data()
 {
     QTest::addColumn<int>("anId");
-    //QTest::newRow("integer") << 4587;
     QTest::addColumn<QString>("aString");
-    //QTest::newRow("QString") << "Antibes-Salis";
     QTest::addColumn<QDate>("aDate");
-   // QTest::newRow("QDate") << QDate(2013, 2, 8);
     QTest::addColumn<QString>("aString2");
-    //QTest::newRow("QString") << "Observation 1";
 
    QTest::newRow("ResultTest") << 1 << "Antibes-Salis" << QDate(2013, 2, 8) << "Observation 1";
 }

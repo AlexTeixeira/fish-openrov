@@ -23,9 +23,13 @@ private slots:
 
     void initTestCase();
     void testId();
+    void testId_data();
     void testName();
+    void testName_data();
     void testDate();
+    void testDate_data();
     void testDescription();
+    void testDescription_data();
     void cleanupTestCase();
 
 };

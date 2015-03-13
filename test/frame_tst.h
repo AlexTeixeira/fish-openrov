@@ -22,7 +22,9 @@ private slots:
 
     void initTestCase();
     void testId();
+    void testId_data();
     void testName();
+    void testName_data();
     void cleanupTestCase();
 
 };
