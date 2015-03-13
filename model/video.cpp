@@ -18,7 +18,7 @@ QString Video::GetName() {
     return this->name;
 }
 
-QList<Frame>* Video::GetListFrame() {
+QList<Frame*> Video::GetListFrame() {
     return this->listFrame;
 }
 
@@ -30,11 +30,11 @@ void Video::SetName(QString _name) {
     this->name = _name;
 }
 
-void Video::SetListFrame(QList<Frame>* _listFrame) {
+void Video::SetListFrame(QList<Frame*>_listFrame) {
     this->listFrame = _listFrame;
 }
 
-void Video::AddFrame(Frame _frame) {
+void Video::AddFrame(Frame * _frame) {
     
 }
 

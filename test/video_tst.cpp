@@ -41,18 +41,30 @@ void VideoTest::testName_data()
 
 void VideoTest::testListFrame()
 {
+    QList<Frame*> frList;
 
-    //QFETCH(QList<Frame>, aFish);
-    //v1->SetListFrame(new QList<Frame>());
-    //v1->AddFrame(aFish);
+    Frame *fr1 = new Frame();
+
+    QFETCH(int, anId);
+    fr1->SetId(anId);
+
+    QFETCH(QString,aString);
+    fr1->SetName(aString);
+
+    frList.append(fr1);
+
+    v1->SetListFrame(frList);
+
+    QTEST(v1->GetListFrame().at(0)->GetId(), "anId");
+    QTEST(v1->GetListFrame().at(0)->GetName(), "aString");
+
 }
 void VideoTest::testListFrame_data()
 {
-    /*QList<Frame> ListFrame;
-    v1->SetListFrame(new QList<Frame>());
-    QTest::addColumn<Frame>("aFish");
-   //QTest::newRow("string without spaces") << new Frame(3,"name fish");*/
+    QTest::addColumn<int>("anId");
+    QTest::addColumn<QString>("aString");
 
+    QTest::newRow("ListTest")<<123<<"myFrame";
 }
 
 void VideoTest::cleanupTestCase()
