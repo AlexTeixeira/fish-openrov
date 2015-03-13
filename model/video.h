@@ -92,7 +92,7 @@ public:
 private:
     int id;
     QString name;
-    QList<Frame*> listFrame;
+    QList<Frame*> listFrame;// correction List
     
 signals:
     
