@@ -45,7 +45,6 @@ void ProcessingTest::testResult()
     QTEST(p1->GetResult()->GetName(), "aString");
     QTEST(p1->GetResult()->GetDate(), "aDate");
     QTEST(p1->GetResult()->GetDescription(), "aString2");
-
 }
 
 void ProcessingTest::testResult_data()
@@ -55,7 +54,7 @@ void ProcessingTest::testResult_data()
     QTest::addColumn<QDate>("aDate");
     QTest::addColumn<QString>("aString2");
 
-   QTest::newRow("ResultTest") << 1 << "Antibes-Salis" << QDate(2013, 2, 8) << "Observation 1";
+    QTest::newRow("ResultTest") << 1 << "Antibes-Salis" << QDate(2013, 2, 8) << "Observation 1";
 }
 
 void ProcessingTest::cleanupTestCase()
