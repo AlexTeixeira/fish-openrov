@@ -1,4 +1,5 @@
 #include "library.h"
+#include "xmlobject.h"
 
 Library::Library(QObject *parent) :
     QObject(parent)
@@ -8,8 +9,6 @@ Library::Library(QObject *parent) :
 Library::Library(int _id, QString _name) {
     this->id = _id;
     this->name = _name;
-    
-    this->listPlace = new QList<Place*>();
 }
 
 int Library::GetId() {
@@ -26,10 +25,6 @@ QString Library::GetXmlDirPath() {
 
 QList<QString> Library::GetListFullPath() {
     return this->listFullPath;
-}
-
-QList<Place*> *Library::GetListPlace() {
-    return this->listPlace;
 }
 
 void Library::SetId(int _id) {
@@ -62,28 +57,24 @@ void Library::LoadXmlLibrary() {
 void Library::LoadXmlContent() {
     // Parcours de la librairyXml
     for (int var = 0; var < this->xmlLibrary.size(); ++var) {
-        QList<QMap<QString, QString> *> *currentListPlace = this->xmlLibrary.at(var)->GetElementAttributesValue(this->xmlLibrary.at(var)->GetDomDoc()->firstChild(), "place");
+        
+        QList<QMap<QString, QString> *> *listPlace = this->xmlLibrary.at(var)->GetElementAttributesValue(this->xmlLibrary.at(var)->GetDomDoc()->firstChild(), "place");
         // Envoi de la QList dans la factory afin de créer les PLACE
-        if (currentListPlace->size() > 0) {
-            for (int var2 = 0; var2 < currentListPlace->size(); ++var2) {        
-                // Création de la classe courrante Place
-                Place *currentPlace = new Place(*currentListPlace->at(var2));
-                this->listPlace->append(currentPlace);
-                
-                // Pour chaque place trouvée, on recherche le ou les fish
-                QList<QMap<QString, QString> *> *currentListFish = this->xmlLibrary.at(var)->GetChildElementValues(this->xmlLibrary.at(var)->GetDomDoc()->firstChild(), "fish");
-                // Envoi de la QList dans la factory afin de créer les FISH
-                if (currentListFish->size() > 0) {
-                    QList<Fish*> *listFish = new QList<Fish*>();
-                    for (int var2 = 0; var2 < currentListFish->size(); ++var2) {
-                        Fish *currentFish = new Fish(*currentListFish->at(var2));
-                        listFish->append(currentFish);
-                    }
-                    currentPlace->SetListFish(listFish);
-                }
-            }
+        for (int var2 = 0; var2 < listPlace->size(); ++var2) {
+            qDebug() << *listPlace->at(var2);
         }
-    }    
+        
+        QList<QMap<QString, QString> *> *listFish = this->xmlLibrary.at(var)->GetChildElementValues(this->xmlLibrary.at(var)->GetDomDoc()->firstChild(), "fish");
+        // Envoi de la QList dans la factory afin de créer les FISH
+        for (int var2 = 0; var2 < listFish->size(); ++var2) {
+            qDebug() << *listFish->at(var2);
+        }
+    }
+    
+}
+
+void Library::UpdateXmlLibrary() {
+    
 }
 
 void Library::GetFullPathFiles(QDir rootDir, QString extension) {
@@ -114,8 +105,4 @@ void Library::GetFullPathFiles(QDir rootDir, QString extension) {
         // Exécution en recursif sur le nouveau dossier
         GetFullPathFiles(QDir(newPath), extension);
     }
-}
-
-void Library::UpdateXmlLibrary() {
-    
 }

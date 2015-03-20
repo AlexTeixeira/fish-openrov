@@ -1,21 +1,10 @@
 #include "fish.h"
 
-Fish::Fish() {
-}
-
 Fish::Fish(int _id, QString _name, double _size)
 {
     this->id = _id;
     this->name = _name;
     this->size = _size;
-}
-
-Fish::Fish(QMap<QString, QString> qMap) {
-    QMapIterator<QString, QString> i(qMap);
-    while(i.hasNext()) {
-        i.next();
-        Setter(i.key(), i.value());
-    }
 }
 
 int Fish::GetId() {
@@ -40,14 +29,4 @@ void Fish::SetName(QString _name) {
 
 void Fish::SetSize(double _size) {
     this->size = _size;
-}
-
-void Fish::Setter(QString keyToSet, QString valueToSet) {
-    if (keyToSet == "id") {
-        SetId(valueToSet.toInt(false, 10));
-    } else if (keyToSet == "name") {
-        SetName(valueToSet);
-    } else if (keyToSet == "size") {
-        SetSize(valueToSet.toDouble(false));
-    }
 }

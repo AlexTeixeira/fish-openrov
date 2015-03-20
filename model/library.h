@@ -3,10 +3,7 @@
 
 #include <QObject>
 #include <QList>
-
 #include "xmlobject.h"
-#include "fish.h"
-#include "place.h"
 
 class Library : public QObject
 {
@@ -66,15 +63,6 @@ public:
     QList<QString> GetListFullPath();
     
     /*!
-     *
-     * \brief GetListPlace()
-     *      Function qui retourne la liste des Place de la library
-     * \return Qist<Place*>*
-     *
-     */
-    QList<Place*> *GetListPlace();
-    
-    /*!
      *  \brief SetId()
      *      Méthode qui permet de setter l'id d'une library
      *  \param int _id : id de la library
@@ -110,19 +98,18 @@ public:
     void LoadXmlContent();
 
     /*!
-     *  \brief getFullPathFile();
-     *      Permet de récupérer tous les chemins des fichiers contenus dans le dossier
-     *      passé en paramettre. Set la liste de string listFullPath.
-     *  \param QDir rootDir : chemin du dossier root où se trouve les dossiers et les fishiers
-     *  \param QString extension : extension des fichiers a récupérer
-     */
-    void GetFullPathFiles(QDir rootDir, QString extension);
-    
-    /*!
      *  \brief UpdateXmlLibrary();
      *     ??
      */
     void UpdateXmlLibrary();
+
+    /*!
+     *  \brief getFullPathFile();
+     *     ??
+     */
+    void GetFullPathFiles(QDir rootDir, QString extension);
+    
+    
     
 private:
     int id;
@@ -130,7 +117,6 @@ private:
     QString xmlDirPath;
     QList<QString> listFullPath;
     QList<XmlObject*> xmlLibrary;
-    QList<Place*> *listPlace;
     
 signals:
     

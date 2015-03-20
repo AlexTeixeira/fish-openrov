@@ -6,23 +6,16 @@
  */
 
 #include <QString>
-#include <QMap>
 
 /*! 
  * \class Fish fish.h
- * \brief Classe retprésentant un poisson(fish)
+ * \brief Classe retprésentant un poisson
  */
 
 class Fish
 {
 
 public:
-    
-    /*!
-     *  \brief Constructeur
-     *      Constructeur de la classe Fish
-     */
-    Fish();
     
     /*!
      *  \brief Constructeur
@@ -34,16 +27,8 @@ public:
     Fish(int _id, QString _name, double _size);
     
     /*!
-     *  \brief Constructeur
-     *      Constructeur de la classe Fish
-     *  \param QMap<QString, QString> qMap : Tableau associatif
-     *  contenat les propriétés de la classe Fish
-     */
-    Fish(QMap<QString, QString> qMap);
-    
-    /*!
      *  \brief GetId()
-     *      Fonction qui permet de récupérer l'id d'une IAbstractClass
+     *      Fonction qui permet de récupérer l'id d'un poisson
      *  \return int
      */
     int GetId();
@@ -64,10 +49,10 @@ public:
     
     /*!
      *  \brief SetId()
-     *      Méthode qui permet de setter l'id d'un lieu
-     *  \param int _id : id de la framme
+     *      Méthode qui permet de setter l'id d'un poisson
+     *  \param int _id : id du poisson
      */
-    void SetId(int _id);
+    void SetId (int _id);
     
     /*!
      *  \brief SetName()
@@ -83,20 +68,11 @@ public:
      */
     void SetSize(double _size);
     
-    /*!
-     *  \brief Setter();
-     *      Méthode qui permet de setter une des propriétés de Fish
-     *      // !! \\ Doit être mise à jour après chaque modification
-     *      sur les propriétés de la classe
-     *  \param QString keyToSet : propriété à setter
-     *  \param QString valueToSet : valeur à setter
-     */
-    void Setter(QString keyToSet, QString valueToSet);
-    
 private:
     int id;
     QString name;
     double size;
+    
 };
 
 #endif // FISH_H
