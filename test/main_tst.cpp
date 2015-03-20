@@ -7,6 +7,7 @@
 #include "place_tst.h"
 #include "processing_tst.h"
 #include "xmlobject_tst.h"
+#include "webservice_tst.h"
 
 int main()
 {
@@ -24,4 +25,6 @@ int main()
     QTest::qExec(&prt);
     XmlObject_tst xmt;
     QTest::qExec(&xmt);
+    WebService wbt;
+    QTest::qExec(&wbt);
 }

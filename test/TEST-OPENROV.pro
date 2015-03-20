@@ -32,7 +32,8 @@ SOURCES += main_tst.cpp \
         ../model/webservice.cpp \
         ../model/xmlobject.cpp \
         ../model/frame.cpp \
-    xmlobject_tst.cpp
+    xmlobject_tst.cpp \
+    webservice_tst.cpp
     library_tst.cpp
 
 
@@ -53,5 +54,6 @@ HEADERS  += fish_tst.h \
         ../model/webservice.h \
         ../model/xmlobject.h \
         ../model/frame.h \
-    xmlobject_tst.h
+    xmlobject_tst.h \
+    webservice_tst.h
     library_tst.h
