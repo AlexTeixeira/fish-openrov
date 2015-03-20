@@ -36,7 +36,6 @@ void VideoTest::testName_data()
     QTest::newRow("string without spaces") << "TestName";
     QTest::newRow("string with spaces") << "Test Name";
     QTest::newRow("string with special characters") << "Test Name /!%K";
-
 }
 
 void VideoTest::testListFrame()
