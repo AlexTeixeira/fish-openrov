@@ -21,9 +21,9 @@ SOURCES += main_tst.cpp \
         video_tst.cpp \
         place_tst.cpp \
         processing_tst.cpp \
-#        library_tst.cpp \
-#        webservice_tst.cpp \
-#        xmlobject_tst.cpp \
+        library_tst.cpp \
+        webservice_tst.cpp \
+        xmlobject_tst.cpp \
         ../model/fish.cpp \
         ../model/place.cpp \
         ../model/processing.cpp \
@@ -33,11 +33,8 @@ SOURCES += main_tst.cpp \
         ../model/webservice.cpp \
         ../model/xmlobject.cpp \
         ../model/frame.cpp \
-<<<<<<< HEAD
     xmlobject_tst.cpp
-=======
     library_tst.cpp
->>>>>>> fcf477fc23157e9a59c32debb836c03f9b9af36a
 
 
 HEADERS  += fish_tst.h \
@@ -46,9 +43,9 @@ HEADERS  += fish_tst.h \
         video_tst.h \
         place_tst.h \
         processing_tst.h \
-#        library_tst.h \
-#        webservice_tst.h \
-#        xmlobject_tst.h \
+        library_tst.h \
+        webservice_tst.h \
+        xmlobject_tst.h \
         ../model/fish.h \
         ../model/place.h \
         ../model/processing.h \
@@ -58,8 +55,5 @@ HEADERS  += fish_tst.h \
         ../model/webservice.h \
         ../model/xmlobject.h \
         ../model/frame.h \
-<<<<<<< HEAD
     xmlobject_tst.h
-=======
     library_tst.h
->>>>>>> fcf477fc23157e9a59c32debb836c03f9b9af36a
