@@ -64,11 +64,11 @@ void LibraryTest::testLoadXmlLibrary()
     QFETCH(QString, aName);
     QFETCH(QString, aPath);
 
-    XmlObject xml1 = new XmlObject(anID, aName, aPath);
+    XmlObject * xml1 = new XmlObject(anID, aName, aPath);
 
     xmlLibrary_tst.append(xml1);
 
-    l1->LoadXmlLibrary(xmlLibrary_tst);
+ //   l1->se (xmlLibrary_tst);
 }
 
 void LibraryTest::testLoadXmlLibrary_data()

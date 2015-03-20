@@ -6,6 +6,7 @@
 #include "video_tst.h"
 #include "place_tst.h"
 #include "processing_tst.h"
+#include "xmlobject_tst.h"
 
 int main()
 {
@@ -21,4 +22,6 @@ int main()
     QTest::qExec(&plt);
     ProcessingTest prt;
     QTest::qExec(&prt);
+    XmlObject_tst xmt;
+    QTest::qExec(&xmt);
 }

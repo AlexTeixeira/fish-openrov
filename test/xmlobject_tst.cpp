@@ -1,58 +1,79 @@
 #include "xmlobject_tst.h"
 
-xmlobject_tst::xmlobject_tst(QObject *parent) : QObject(parent)
+XmlObject_tst::XmlObject_tst(QObject *parent) : QObject(parent)
 {
 
 }
 
-xmlobject_tst::~xmlobject_tst()
+void XmlObject_tst::initTestCase()
 {
+//    QFETCH(int, anID);
+//    QFETCH(QString, aName);
+//    QFETCH(QString, aPath);
 
+
+    xml1=new XmlObject(123,"aName","aPath");
+/*
+    QTEST(xml1->GetId(),"anID");
+    QTEST(xml1->GetName(),"aName");
+    QTEST(xml1->GetPath(),"aPath");
+*/
 }
 
-void xmlobject_tst::initTestCase()
+void XmlObject_tst::initTestCase_data()
 {
-    xml1=new XmlObject();
+    QTest::addColumn<int>("anID");
+    QTest::addColumn<QString>("aName");
+    QTest::addColumn<QString>("aPath");
+    QTest::newRow("XmlObjectTest")<<123<<"XmlObject"<<"c:\\ProgramData\\FishRov\\xmlobject.xml";
 }
 
-void xmlobject_tst::testId()
+void XmlObject_tst::testId()
 {
-    QFETCH(int, anId);
-    xml1->SetId(anId);
-    QTEST(xml1->GetId(),"anId");
+    QFETCH(int, anId1);
+    xml1->SetId(anId1);
+    QTEST(xml1->GetId(),"anId1");
 }
 
-void xmlobject_tst::testId_data()
+void XmlObject_tst::testId_data()
 {
-    QTest::addColumn<int>("anId");
+    QTest::addColumn<int>("anId1");
     QTest::newRow("integer")<<123;
 }
 
-void xmlobject_tst::testName()
+void XmlObject_tst::testName()
 {
-    QFETCH(QString,aName);
-    xml1->SetName(aName);
-    QTEST(xml1->GetName(),"aName");
+    QFETCH(QString,aName1);
+    xml1->SetName(aName1);
+    QTEST(xml1->GetName(),"aName1");
 }
 
-void xmlobject_tst::testName_data()
+void XmlObject_tst::testName_data()
 {
-    QTest::addColumn<QString>("aName");
+    QTest::addColumn<QString>("aName1");
 
     QTest::newRow("string without spaces") << "TestName";
     QTest::newRow("string with spaces") << "Test Name";
     QTest::newRow("string with special characters") << "Test Name /!%K";
 }
 
-void xmlobject_tst::testPath()
+void XmlObject_tst::testPath()
 {
-    QFETCH(QString,aPath);
-    xml1->SetPath(aPath);
-    QTEST(xml1->GetPath(),"aPath");
+    QFETCH(QString,aPath1);
+    xml1->SetPath(aPath1);
+    QTEST(xml1->GetPath(),"aPath1");
 }
 
-void xmlobject_tst::testPath_data()
+void XmlObject_tst::testPath_data()
 {
+    QTest::addColumn<QString>("aPath1");
 
-
+    QTest::newRow("path Windows") << "C:\\ProgramData\\FishRov\\xmlobject.xml";
+    QTest::newRow("path Unix") << "\\home\\FishRov\\xmlobject.xml";
 }
+
+void XmlObject_tst::cleanupTestCase()
+{
+    delete xml1;
+}
+

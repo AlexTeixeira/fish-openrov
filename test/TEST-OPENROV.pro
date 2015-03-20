@@ -22,8 +22,7 @@ SOURCES += main_tst.cpp \
         place_tst.cpp \
         processing_tst.cpp \
         library_tst.cpp \
-        webservice_tst.cpp \
-        xmlobject_tst.cpp \
+#        webservice_tst.cpp \
         ../model/fish.cpp \
         ../model/place.cpp \
         ../model/processing.cpp \
@@ -44,8 +43,7 @@ HEADERS  += fish_tst.h \
         place_tst.h \
         processing_tst.h \
         library_tst.h \
-        webservice_tst.h \
-        xmlobject_tst.h \
+ #       webservice_tst.h \
         ../model/fish.h \
         ../model/place.h \
         ../model/processing.h \
