@@ -55,11 +55,11 @@ void PlaceTest::testListFish()
 
     fList.append(f1);
 
-    p1->SetListFish(fList);
+    p1->SetListFish(&fList);
 
-    QTEST(p1->GetListFish().at(0)->GetId(), "anId");
-    QTEST(p1->GetListFish().at(0)->GetName(), "aString");
-    QTEST(p1->GetListFish().at(0)->GetSize(), "aDouble");
+    QTEST(p1->GetListFish()->at(0)->GetId(), "anId");
+    QTEST(p1->GetListFish()->at(0)->GetName(), "aString");
+    QTEST(p1->GetListFish()->at(0)->GetSize(), "aDouble");
 }
 
 void PlaceTest::testListFish_data()
