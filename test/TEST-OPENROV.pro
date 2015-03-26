@@ -6,7 +6,8 @@
 
 QT       += testlib
 QT       += xml
-QT       -= gui
+QT       += core gui
+greaterThan (QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = TEST-OPENROV
 CONFIG   += console
@@ -22,6 +23,7 @@ SOURCES += main_tst.cpp \
         place_tst.cpp \
         processing_tst.cpp \
         library_tst.cpp \
+        ../mainwindow.cpp \
 #        webservice_tst.cpp \
         ../model/fish.cpp \
         ../model/place.cpp \
@@ -42,6 +44,7 @@ HEADERS  += fish_tst.h \
         result_tst.h \
         video_tst.h \
         place_tst.h \
+        ../mainwindow.h \
         processing_tst.h \
         library_tst.h \
  #       webservice_tst.h \
@@ -57,3 +60,5 @@ HEADERS  += fish_tst.h \
     xmlobject_tst.h \
     webservice_tst.h
     library_tst.h
+
+FORMS    += ../mainwindow.ui
