@@ -133,7 +133,7 @@ QList<QMap<QString, QString> *> *XmlObject::GetElementValues(QDomNode node, QStr
 }
 
 void XmlObject::GetElementValues(QDomNode node, QString tagName, QList<QMap<QString, QString> *> *list) {
-    QDomNode domNode = node.firstChild();   
+    QDomNode domNode = node.firstChild();  
     while (!(domNode.isNull())) {
         if (domNode.parentNode().toElement().tagName() == tagName) {
             QMap<QString, QString> *loadMap = new QMap<QString, QString>();
