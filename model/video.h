@@ -45,7 +45,7 @@ public:
      *      Fonction qui permet de récupérer une liste de frame
      *  \return QList<Frame>
      */
-    QList<Frame> *GetListFrame();
+    QList<Frame*> GetListFrame();
     
     /*!
      *  \brief SetId()
@@ -66,14 +66,14 @@ public:
      *      Méthode qui permet de setter une liste de frame
      *  \param QList<Frame>* _listFrame : liste de frame
      */
-    void SetListFrame(QList<Frame>* _listFrame);
+    void SetListFrame(QList<Frame*> _listFrame);
     
     /*!
      *  \brief AddFrame();
      *      Méthode qui permet d'ajouter une frame à la liste de frame
      *  \param Frame _frame : une frame
      */
-    void AddFrame(Frame _frame);
+    void AddFrame(Frame * _frame);
 
     /*!
      *  \brief UpdateFrame();
@@ -92,7 +92,7 @@ public:
 private:
     int id;
     QString name;
-    QList<Frame> *listFrame;
+    QList<Frame*> listFrame;// correction List
     
 signals:
     
