@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QDebug>
+#include <QLineEdit>
+#include <QFormLayout>
 
 namespace Ui {
 class MainWindow;
@@ -17,9 +20,15 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    void deletItem(QFormLayout *layoutContenu);
+
 
 public slots:
-    void switchMainWidget(int i);
+
+    void onClick_showAnalyser();
+    void onClick_showAjouterPoisson();
+    void onClick_showTelechargerPoisson();
+
 };
 
 #endif // MAINWINDOW_H
