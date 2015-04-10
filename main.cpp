@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "principal.h"
 #include <QApplication>
 
 #include <QDebug>
@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
         }
     }
     
-    MainWindow w;
+    principal w;
     w.show();
     
     return a.exec();

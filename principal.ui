@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>principal</class>
+ <widget class="QWidget" name="principal">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>768</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1024</width>
+    <height>768</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>0</y>
+     <width>831</width>
+     <height>771</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="layoutContenu">
+    <item row="0" column="0">
+     <widget class="QWidget" name="widgetContenu" native="true"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="widgetMenu" native="true">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>200</width>
+     <height>1024</height>
+    </rect>
+   </property>
+   <widget class="QPushButton" name="btn_analyser">
+    <property name="geometry">
+     <rect>
+      <x>65</x>
+      <y>100</y>
+      <width>64</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="mouseTracking">
+     <bool>true</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../Pictures/fish/loupe.png</normaloff>../../Pictures/fish/loupe.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>64</width>
+      <height>64</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_ajoutPoisson">
+    <property name="geometry">
+     <rect>
+      <x>65</x>
+      <y>370</y>
+      <width>64</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../Pictures/fish/poisson.png</normaloff>../../Pictures/fish/poisson.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>64</width>
+      <height>64</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_telechargerPoisson">
+    <property name="geometry">
+     <rect>
+      <x>65</x>
+      <y>630</y>
+      <width>64</width>
+      <height>64</height>
+     </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>../../Pictures/fish/cloud.png</normaloff>../../Pictures/fish/cloud.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>64</width>
+      <height>64</height>
+     </size>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
