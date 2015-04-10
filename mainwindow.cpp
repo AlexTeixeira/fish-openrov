@@ -61,6 +61,7 @@ void MainWindow::onClick_showAnalyser(){
 
 
     QPushButton *parcourir = new QPushButton("Parcourir");
+    connect(parcourir, SIGNAL(clicked()), this, SLOT(onClick_selectSourcePath()));
     ui->layoutContenu->addRow(parcourir);
     //ui->parcourir.setGeometry(60, 50, 260, 70);
 
@@ -107,4 +108,10 @@ void MainWindow::deletItem(QFormLayout *layoutContenu){
             delete item->widget();
             delete item;
     }
+}
+
+void MainWindow::onClick_selectSourcePath(){
+    QString *filename = new QString;
+    *filename = QFileDialog::getOpenFileName(this, tr("Ouvrir Image/Vidéo"), "C:/", tr("Fichiers Image (*.png *.jpg *.bmp *.tiff *.ppm);;Fichiers Vidéo (*.mp4 *.avi *.m4v)"));
+    qDebug()<<*filename;
 }

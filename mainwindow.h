@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QLineEdit>
 #include <QFormLayout>
+#include <QFileDialog>
 
 namespace Ui {
 class MainWindow;
@@ -28,6 +29,7 @@ public slots:
     void onClick_showAnalyser();
     void onClick_showAjouterPoisson();
     void onClick_showTelechargerPoisson();
+    void onClick_selectSourcePath();
 
 };
 
