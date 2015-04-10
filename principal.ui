@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/images/icon_png</normaloff>:/images/icon_png</iconset>
+  </property>
   <widget class="QWidget" name="formLayoutWidget">
    <property name="geometry">
     <rect>
@@ -65,8 +69,8 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>images/loupe.png</normaloff>images/loupe.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/images/loupe</normaloff>:/images/loupe</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -91,8 +95,8 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>images/poisson.png</normaloff>images/poisson.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/images/poisson</normaloff>:/images/poisson</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -117,8 +121,8 @@
      <string/>
     </property>
     <property name="icon">
-     <iconset>
-      <normaloff>images/cloud.png</normaloff>images/cloud.png</iconset>
+     <iconset resource="resources.qrc">
+      <normaloff>:/images/cloud</normaloff>:/images/cloud</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -129,6 +133,8 @@
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

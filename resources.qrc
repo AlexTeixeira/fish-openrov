@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="cloud">images/cloud.png</file>
+        <file alias="loupe">images/loupe.png</file>
+        <file alias="poisson">images/poisson.png</file>
+        <file alias="icon">images/fish_icon.ico</file>
+        <file alias="icon_png">images/fish_icon.png</file>
+    </qresource>
+    <qresource prefix="/videos"/>
+</RCC>

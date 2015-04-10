@@ -14,8 +14,8 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets \
 TARGET = FISH-OPENROV
 TEMPLATE = app
 
-SOURCES += main.cpp\
-        mainwindow.cpp \
+SOURCES += main.cpp \
+    mainwindow.cpp \
     model/xmlobject.cpp \
     model/fish.cpp \
     model/place.cpp \
@@ -27,7 +27,7 @@ SOURCES += main.cpp\
     model/video.cpp \
     principal.cpp
 
-HEADERS  += mainwindow.h \
+HEADERS += mainwindow.h \
     model/xmlobject.h \
     model/fish.h \
     model/place.h \
@@ -40,3 +40,5 @@ HEADERS  += mainwindow.h \
     principal.h
 
 FORMS += principal.ui
+
+RESOURCES += resources.qrc
