@@ -29,7 +29,6 @@ SOURCES += main.cpp\
     model/abstractfactory.cpp \
     model/builder.cpp \
     model/iabstractclass.cpp \
-    helpers/clickableimage.cpp
 
 HEADERS  += mainwindow.h \
     model/xmlobject.h \
@@ -43,7 +42,6 @@ HEADERS  += mainwindow.h \
     model/video.h \
     principal.h \
     model/iabstractclass.h \
-    helpers/clickableimage.h
 
 FORMS    +=
     principal.ui
