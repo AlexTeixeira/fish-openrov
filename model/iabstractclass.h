@@ -8,7 +8,7 @@ public:
     
     /*!
      *  \brief GetId()
-     *      Fonction qui permet de récupérer l'id d'une IAbstractClass
+     *     Fonction qui permet de récupérer l'id d'une IAbstractClass
      *  \return int
      */
     int GetId();
