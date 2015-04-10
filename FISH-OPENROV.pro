@@ -25,10 +25,7 @@ SOURCES += main.cpp\
     model/result.cpp \
     model/frame.cpp \
     model/video.cpp \
-    principal.cpp \
-    model/abstractfactory.cpp \
-    model/builder.cpp \
-    model/iabstractclass.cpp \
+    principal.cpp
 
 HEADERS  += mainwindow.h \
     model/xmlobject.h \
@@ -40,8 +37,6 @@ HEADERS  += mainwindow.h \
     model/result.h \
     model/frame.h \
     model/video.h \
-    principal.h \
-    model/iabstractclass.h \
+    principal.h
 
-FORMS    +=
-    principal.ui
+FORMS += principal.ui
