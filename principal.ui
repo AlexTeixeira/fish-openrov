@@ -53,7 +53,7 @@
      </rect>
     </property>
     <property name="cursor">
-     <cursorShape>PointingHandCursor</cursorShape>
+     <cursorShape>ClosedHandCursor</cursorShape>
     </property>
     <property name="mouseTracking">
      <bool>true</bool>
@@ -66,7 +66,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../Pictures/fish/loupe.png</normaloff>../../Pictures/fish/loupe.png</iconset>
+      <normaloff>images/loupe.png</normaloff>images/loupe.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -92,7 +92,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../Pictures/fish/poisson.png</normaloff>../../Pictures/fish/poisson.png</iconset>
+      <normaloff>images/poisson.png</normaloff>images/poisson.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -118,7 +118,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>../../Pictures/fish/cloud.png</normaloff>../../Pictures/fish/cloud.png</iconset>
+      <normaloff>images/cloud.png</normaloff>images/cloud.png</iconset>
     </property>
     <property name="iconSize">
      <size>
