@@ -8,6 +8,7 @@
 #include <QFormLayout>
 #include <QFileDialog>
 #include <QColor>
+#include "model/player.h"
 
 namespace Ui {
 class principal;
@@ -32,7 +33,7 @@ public slots:
     void onClick_showAjouterPoisson();
     void onClick_showTelechargerPoisson();
     void onClick_selectSourcePath();
-
+    void onClick_validAnalysis();
 };
 
 #endif // PRINCIPAL_H

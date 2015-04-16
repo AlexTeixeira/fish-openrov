@@ -63,9 +63,8 @@ void principal::onClick_showAnalyser(){
     //ui->parcourir.setGeometry(60, 50, 260, 70);
 
     QPushButton *boutonAnalyser = new QPushButton("Valider");
+    connect(boutonAnalyser, SIGNAL(clicked()), this, SLOT(onClick_validAnalysis()));
     ui->layoutContenu->addRow(boutonAnalyser);
-
-
 }
 
 void principal::onClick_showAjouterPoisson(){
@@ -96,8 +95,6 @@ void principal::onClick_showTelechargerPoisson(){
     ui->layoutContenu->addRow(boutonAnalyser);
 }
 
-
-
 void principal::deletItem(QFormLayout *layoutContenu){
     QLayoutItem *item;
     while (!layoutContenu->isEmpty()) {
@@ -113,3 +110,7 @@ void principal::onClick_selectSourcePath(){
     qDebug()<<*filename;
 }
 
+void principal::onClick_validAnalysis(){
+     qDebug()<<"Lancement du Media Player";
+     Player player = new Player();
+}

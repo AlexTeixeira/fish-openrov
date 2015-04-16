@@ -24,7 +24,13 @@ SOURCES += main.cpp \
     model/result.cpp \
     model/frame.cpp \
     model/video.cpp \
-    principal.cpp
+    principal.cpp \
+    # Model Media Player #
+    model/histogramwidget.cpp \
+    model/player.cpp \
+    model/playercontrols.cpp \
+    model/playlistmodel.cpp \
+    model/videowidget.cpp
 
 HEADERS += model/xmlobject.h \
     model/fish.h \
@@ -35,7 +41,17 @@ HEADERS += model/xmlobject.h \
     model/result.h \
     model/frame.h \
     model/video.h \
-    principal.h
+    principal.h \
+    # Source Media Player #
+    model/histogramwidget.h \
+    model/player.h \
+    model/playercontrols.h \
+    model/playlistmodel.h \
+    model/videowidget.h
+
+maemo* {
+    DEFINES += PLAYER_NO_COLOROPTIONS
+}
 
 FORMS += principal.ui
 
