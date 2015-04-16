@@ -30,7 +30,8 @@ SOURCES += main.cpp \
     model/player.cpp \
     model/playercontrols.cpp \
     model/playlistmodel.cpp \
-    model/videowidget.cpp
+    model/videowidget.cpp   \
+    loginwindow.cpp
 
 HEADERS += model/xmlobject.h \
     model/fish.h \
@@ -47,12 +48,14 @@ HEADERS += model/xmlobject.h \
     model/player.h \
     model/playercontrols.h \
     model/playlistmodel.h \
-    model/videowidget.h
+    model/videowidget.h \
+    loginwindow.h
 
 maemo* {
     DEFINES += PLAYER_NO_COLOROPTIONS
 }
 
-FORMS += principal.ui
+FORMS += principal.ui \
+        loginwindow.ui
 
 RESOURCES += resources.qrc

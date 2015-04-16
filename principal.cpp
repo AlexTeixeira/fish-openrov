@@ -1,11 +1,16 @@
 #include "principal.h"
 #include "ui_principal.h"
 
-principal::principal(QWidget *parent) :
+principal::principal(QString windowType, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::principal)
 {
     ui->setupUi(this);
+
+    if(windowType == "student"){
+        ui->btn_ajoutPoisson->hide();
+
+    }
 
     // Je connecte le bouton "Analyser(btn_analyser)" à la méthode "onClick_showAnalyser()"
     connect(ui->btn_analyser, SIGNAL(clicked()), this, SLOT(onClick_showAnalyser()));

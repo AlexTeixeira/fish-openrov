@@ -19,7 +19,7 @@ class principal : public QWidget
     Q_OBJECT
 
 public:
-    explicit principal(QWidget *parent = 0);
+    explicit principal(QString windowType, QWidget *parent = 0);
     ~principal();
 
 private:

@@ -1,5 +1,6 @@
 #include "principal.h"
 #include <QApplication>
+#include "loginwindow.h"
 
 #include <QDebug>
 #include "model/library.h"
@@ -31,9 +32,9 @@ int main(int argc, char *argv[])
             qDebug() << "";
         }
     }
-    
-    principal w;
-    w.show();
+
+    LoginWindow loginWindow;
+    loginWindow.show();
     
     return a.exec();
 }
