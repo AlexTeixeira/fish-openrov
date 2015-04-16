@@ -15,7 +15,6 @@ TARGET = FISH-OPENROV
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    mainwindow.cpp \
     model/xmlobject.cpp \
     model/fish.cpp \
     model/place.cpp \
@@ -27,8 +26,7 @@ SOURCES += main.cpp \
     model/video.cpp \
     principal.cpp
 
-HEADERS += mainwindow.h \
-    model/xmlobject.h \
+HEADERS += model/xmlobject.h \
     model/fish.h \
     model/place.h \
     model/webservice.h \
