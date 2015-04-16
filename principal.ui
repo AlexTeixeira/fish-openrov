@@ -27,15 +27,30 @@
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>0</y>
+     <y>70</y>
      <width>831</width>
-     <height>771</height>
+     <height>701</height>
     </rect>
    </property>
    <layout class="QFormLayout" name="layoutContenu">
-    <item row="0" column="0">
-     <widget class="QWidget" name="widgetContenu" native="true"/>
-    </item>
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMaximumSize</enum>
+    </property>
+    <property name="labelAlignment">
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+    </property>
+    <property name="formAlignment">
+     <set>Qt::AlignJustify|Qt::AlignVCenter</set>
+    </property>
+    <property name="horizontalSpacing">
+     <number>6</number>
+    </property>
+    <property name="leftMargin">
+     <number>175</number>
+    </property>
+    <property name="rightMargin">
+     <number>175</number>
+    </property>
    </layout>
   </widget>
   <widget class="QWidget" name="widgetMenu" native="true">
@@ -131,6 +146,26 @@
      </size>
     </property>
    </widget>
+  </widget>
+  <widget class="QLabel" name="TitleLabel">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>20</y>
+     <width>171</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <resources>

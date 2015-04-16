@@ -35,6 +35,7 @@ principal::principal(QWidget *parent) :
 
     ui->btn_telechargerPoisson->setStyleSheet("background-color : rgb(91,155,213);");
     ui->btn_telechargerPoisson->setFlat(true);
+
 }
 
 principal::~principal()
@@ -51,20 +52,20 @@ void principal::onClick_showAnalyser(){
     QLineEdit *lieu = new QLineEdit;
     QLineEdit *vidima = new QLineEdit;
 
+
     ui->layoutContenu->addRow("Nom", nom);
     ui->layoutContenu->addRow("Date", date);
     ui->layoutContenu->addRow("Lieu", lieu);
     ui->layoutContenu->addRow("Video images", vidima);
 
-
     QPushButton *parcourir = new QPushButton("Parcourir");
     connect(parcourir, SIGNAL(clicked()), this, SLOT(onClick_selectSourcePath()));
     ui->layoutContenu->addRow(parcourir);
-    //ui->parcourir.setGeometry(60, 50, 260, 70);
 
     QPushButton *boutonAnalyser = new QPushButton("Valider");
     connect(boutonAnalyser, SIGNAL(clicked()), this, SLOT(onClick_validAnalysis()));
     ui->layoutContenu->addRow(boutonAnalyser);
+
 }
 
 void principal::onClick_showAjouterPoisson(){
@@ -79,8 +80,18 @@ void principal::onClick_showAjouterPoisson(){
     ui->layoutContenu->addRow("Lieu", lieu2);
     ui->layoutContenu->addRow("Image", image);
 
+    QPushButton *parcourir = new QPushButton("Parcourir");
+    connect(parcourir, SIGNAL(clicked()), this, SLOT(onClick_selectSourcePath()));
+    ui->layoutContenu->addRow(parcourir);
+
     QPushButton *boutonAnalyser = new QPushButton("Valider");
     ui->layoutContenu->addRow(boutonAnalyser);
+
+//    ui->TitleLabel = new QLabel;
+
+//    ui->TitleLabel->setText(QString("Analyser"));
+//    ui->TitleLabel->repaint();
+//    qApp->processEvents();
 }
 
 void principal::onClick_showTelechargerPoisson(){
