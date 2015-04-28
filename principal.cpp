@@ -7,10 +7,9 @@ principal::principal(QString windowType, QWidget *parent) :
 {
     ui->setupUi(this);
 
-    if(windowType == "student"){
-        ui->btn_ajoutPoisson->hide();
+    this->windowType = windowType;
 
-    }
+
 
     // Je connecte le bouton "Analyser(btn_analyser)" à la méthode "onClick_showAnalyser()"
     connect(ui->btn_analyser, SIGNAL(clicked()), this, SLOT(onClick_showAnalyser()));
@@ -40,6 +39,12 @@ principal::principal(QString windowType, QWidget *parent) :
 
     ui->btn_telechargerPoisson->setStyleSheet("background-color : rgb(91,155,213);");
     ui->btn_telechargerPoisson->setFlat(true);
+
+    if(this->windowType == "student"){
+        ui->btn_ajoutPoisson->setEnabled(false);
+
+
+    }
 
 }
 

@@ -25,6 +25,7 @@ public:
 private:
     Ui::principal *ui;
     void deletItem(QFormLayout *layoutContenu);
+    QString windowType;
 
 
 public slots:
