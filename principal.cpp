@@ -76,6 +76,9 @@ void principal::onClick_showAnalyser(){
     connect(boutonAnalyser, SIGNAL(clicked()), this, SLOT(onClick_validAnalysis()));
     ui->layoutContenu->addRow(boutonAnalyser);
 
+    ui->TitleLabel->setText("Analyser");
+
+
 }
 
 void principal::onClick_showAjouterPoisson(){
@@ -84,24 +87,23 @@ void principal::onClick_showAjouterPoisson(){
 
     QLineEdit *poisson = new QLineEdit;
     QLineEdit *lieu2 = new QLineEdit;
-    QLineEdit *image = new QLineEdit;
+    this->image = new QListWidget;
+
 
     ui->layoutContenu->addRow("Poisson", poisson);
     ui->layoutContenu->addRow("Lieu", lieu2);
     ui->layoutContenu->addRow("Image", image);
 
     QPushButton *parcourir = new QPushButton("Parcourir");
-    connect(parcourir, SIGNAL(clicked()), this, SLOT(onClick_selectSourcePath()));
+    connect(parcourir, SIGNAL(clicked()), this, SLOT(onClick_selectSourcePathImage()));
     ui->layoutContenu->addRow(parcourir);
 
     QPushButton *boutonAnalyser = new QPushButton("Valider");
     ui->layoutContenu->addRow(boutonAnalyser);
 
-//    ui->TitleLabel = new QLabel;
 
-//    ui->TitleLabel->setText(QString("Analyser"));
-//    ui->TitleLabel->repaint();
-//    qApp->processEvents();
+    ui->TitleLabel->setText("Ajout de poissons");
+
 }
 
 void principal::onClick_showTelechargerPoisson(){
@@ -114,6 +116,9 @@ void principal::onClick_showTelechargerPoisson(){
 
     QPushButton *boutonAnalyser = new QPushButton("Valider");
     ui->layoutContenu->addRow(boutonAnalyser);
+
+    ui->TitleLabel->setText("Télécharger bibliothèque de poissons");
+
 }
 
 void principal::deletItem(QFormLayout *layoutContenu){
@@ -130,6 +135,14 @@ void principal::onClick_selectSourcePath(){
     *filename = QFileDialog::getOpenFileName(this, tr("Ouvrir Image/Vidéo"), "C:/", tr("Fichiers Image (*.png *.jpg *.bmp *.tiff *.ppm);;Fichiers Vidéo (*.mp4 *.avi *.m4v)"));
     qDebug()<<*filename;
 }
+
+void principal::onClick_selectSourcePathImage(){
+    QString *filename = new QString;
+    *filename = QFileDialog::getOpenFileName(this, tr("Ouvrir Image/Vidéo"), "C:/", tr("Fichiers Image (*.png *.jpg *.bmp *.tiff *.ppm);;Fichiers Vidéo (*.mp4 *.avi *.m4v)"));
+    this->image->addItem(new QListWidgetItem(*filename));
+    qDebug()<<*filename;
+}
+
 
 void principal::onClick_validAnalysis(){
      qDebug()<<"Lancement du Media Player";

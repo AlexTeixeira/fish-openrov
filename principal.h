@@ -8,7 +8,10 @@
 #include <QFormLayout>
 #include <QFileDialog>
 #include <QColor>
+#include <QListWidget>
+#include <QListWidgetItem>
 #include "model/player.h"
+
 
 namespace Ui {
 class principal;
@@ -26,6 +29,7 @@ private:
     Ui::principal *ui;
     void deletItem(QFormLayout *layoutContenu);
     QString windowType;
+    QListWidget* image;
 
 
 public slots:
@@ -34,6 +38,7 @@ public slots:
     void onClick_showAjouterPoisson();
     void onClick_showTelechargerPoisson();
     void onClick_selectSourcePath();
+    void onClick_selectSourcePathImage();
     void onClick_validAnalysis();
 };
 
