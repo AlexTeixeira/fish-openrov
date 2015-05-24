@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui xml
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets \
                                         multimedia \
@@ -31,7 +32,9 @@ SOURCES += main.cpp \
     model/playercontrols.cpp \
     model/playlistmodel.cpp \
     model/videowidget.cpp   \
-    loginwindow.cpp
+    loginwindow.cpp \
+    model/security/cryptography.cpp \
+    model/database/sqlconnection.cpp
 
 HEADERS += model/xmlobject.h \
     model/fish.h \
@@ -49,7 +52,9 @@ HEADERS += model/xmlobject.h \
     model/playercontrols.h \
     model/playlistmodel.h \
     model/videowidget.h \
-    loginwindow.h
+    loginwindow.h \
+    model/security/cryptography.h \
+    model/database/sqlconnection.h
 
 maemo* {
     DEFINES += PLAYER_NO_COLOROPTIONS
