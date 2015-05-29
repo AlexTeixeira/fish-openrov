@@ -9,8 +9,6 @@ principal::principal(QString windowType, QWidget *parent) :
 
     this->windowType = windowType;
 
-
-
     // Je connecte le bouton "Analyser(btn_analyser)" à la méthode "onClick_showAnalyser()"
     connect(ui->btn_analyser, SIGNAL(clicked()), this, SLOT(onClick_showAnalyser()));
 
@@ -42,8 +40,6 @@ principal::principal(QString windowType, QWidget *parent) :
 
     if(this->windowType == "student"){
         ui->btn_ajoutPoisson->setEnabled(false);
-
-
     }
 
 }
@@ -57,12 +53,12 @@ void principal::onClick_showAnalyser(){
 
     deletItem(ui->layoutContenu);
 
-    QLineEdit *nom = new QLineEdit;
-    QLineEdit *date = new QLineEdit;
-    QLineEdit *lieu = new QLineEdit;
-    QLineEdit *vidima = new QLineEdit;
+    this->nom = new QLineEdit;
+    this->date = new QLineEdit;
+    this->lieu = new QLineEdit;
+    this->vidima = new QLineEdit;
 
-
+    this->vidima->setDisabled(true);
     ui->layoutContenu->addRow("Nom", nom);
     ui->layoutContenu->addRow("Date", date);
     ui->layoutContenu->addRow("Lieu", lieu);
@@ -77,8 +73,6 @@ void principal::onClick_showAnalyser(){
     ui->layoutContenu->addRow(boutonAnalyser);
 
     ui->TitleLabel->setText("Analyser");
-
-
 }
 
 void principal::onClick_showAjouterPoisson(){
@@ -88,7 +82,6 @@ void principal::onClick_showAjouterPoisson(){
     QLineEdit *poisson = new QLineEdit;
     QLineEdit *lieu2 = new QLineEdit;
     this->image = new QListWidget;
-
 
     ui->layoutContenu->addRow("Poisson", poisson);
     ui->layoutContenu->addRow("Lieu", lieu2);
@@ -103,7 +96,6 @@ void principal::onClick_showAjouterPoisson(){
 
 
     ui->TitleLabel->setText("Ajout de poissons");
-
 }
 
 void principal::onClick_showTelechargerPoisson(){
@@ -131,9 +123,8 @@ void principal::deletItem(QFormLayout *layoutContenu){
 }
 
 void principal::onClick_selectSourcePath(){
-    QString *filename = new QString;
-    *filename = QFileDialog::getOpenFileName(this, tr("Ouvrir Image/Vidéo"), "C:/", tr("Fichiers Image (*.png *.jpg *.bmp *.tiff *.ppm);;Fichiers Vidéo (*.mp4 *.avi *.m4v)"));
-    qDebug()<<*filename;
+    QString filename = QFileDialog::getOpenFileName(this, tr("Ouvrir Image/Vidéo"), "C:/", tr("Fichiers Vidéo (*.mp4 *.avi *.m4v);;Fichiers Image (*.png *.jpg *.bmp *.tiff *.ppm)"));
+    this->vidima->setText(filename);
 }
 
 void principal::onClick_selectSourcePathImage(){
@@ -143,8 +134,19 @@ void principal::onClick_selectSourcePathImage(){
     qDebug()<<*filename;
 }
 
-
 void principal::onClick_validAnalysis(){
      qDebug()<<"Lancement du Media Player";
-     Player player = new Player();
+     bool valid = false;
+     QStringList *FormList = new QStringList();
+     if(!this->nom->text().trimmed().isEmpty() && !this->date->text().trimmed().isEmpty() && !this->lieu->text().trimmed().isEmpty() && !this->vidima->text().trimmed().isEmpty()){
+         FormList->append(this->nom->text());
+         FormList->append(this->date->text());
+         FormList->append(this->lieu->text());
+
+         valid = true;
+     }
+     if(valid){
+         Player* player = new Player(0,this->vidima->text(), FormList);
+     }
+     //player.addToPlaylist(this->filename);
 }

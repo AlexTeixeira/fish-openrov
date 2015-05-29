@@ -30,6 +30,10 @@ private:
     void deletItem(QFormLayout *layoutContenu);
     QString windowType;
     QListWidget* image;
+    QLineEdit *vidima;
+    QLineEdit *nom;
+    QLineEdit *date;
+    QLineEdit *lieu;
 
 
 public slots:

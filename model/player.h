@@ -24,8 +24,9 @@ class Player : public QWidget
     Q_OBJECT
 
 public:
-    Player(QWidget *parent = 0);
+    Player(QWidget *parent = 0, QString filename = "", QStringList *formInfos = 0);
     ~Player();
+    void addToPlaylist(QString &fileNames);
 
 signals:
     void fullScreenChanged(bool fullScreen);
@@ -51,7 +52,7 @@ private slots:
 #ifndef PLAYER_NO_COLOROPTIONS
     void showColorDialog();
 #endif
-    void addToPlaylist(const QStringList &fileNames);
+
 
 private:
     void setTrackInfo(const QString &info);
@@ -59,6 +60,7 @@ private:
     void handleCursor(QMediaPlayer::MediaStatus status);
     void updateDurationInfo(qint64 currentInfo);
 
+    QStringList *formInfos;
     QMediaPlayer *player;
     QMediaPlaylist *playlist;
     VideoWidget *videoWidget;

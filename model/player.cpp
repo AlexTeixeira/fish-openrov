@@ -10,7 +10,7 @@
 #include <QMediaMetaData>
 #include <QtWidgets>
 
-Player::Player(QWidget *parent)
+Player::Player(QWidget *parent, QString filename, QStringList *formInfos)
     : QWidget(parent)
     , videoWidget(0)
     , coverLabel(0)
@@ -19,6 +19,7 @@ Player::Player(QWidget *parent)
     , colorDialog(0)
 #endif
 {
+    this->formInfos = formInfos;
     player = new QMediaPlayer(this);
     // owned by PlaylistModel
     playlist = new QMediaPlaylist();
@@ -63,9 +64,9 @@ Player::Player(QWidget *parent)
     connect(probe, SIGNAL(videoFrameProbed(QVideoFrame)), histogram, SLOT(processFrame(QVideoFrame)));
     probe->setSource(player);
 
-    QPushButton *openButton = new QPushButton(tr("Open"), this);
+    //QPushButton *openButton = new QPushButton(tr("Open"), this);
 
-    connect(openButton, SIGNAL(clicked()), this, SLOT(open()));
+    //connect(openButton, SIGNAL(clicked()), this, SLOT(open()));
 
     PlayerControls *controls = new PlayerControls(this);
     controls->setState(player->state());
@@ -103,7 +104,7 @@ Player::Player(QWidget *parent)
 
     QBoxLayout *controlLayout = new QHBoxLayout;
     controlLayout->setMargin(0);
-    controlLayout->addWidget(openButton);
+    //controlLayout->addWidget(openButton);
     controlLayout->addStretch(1);
     controlLayout->addWidget(controls);
     controlLayout->addStretch(1);
@@ -120,7 +121,6 @@ Player::Player(QWidget *parent)
     layout->addLayout(hLayout);
     layout->addLayout(controlLayout);
     layout->addLayout(histogramLayout);
-
     setLayout(layout);
 
     if (!player->isAvailable()) {
@@ -130,37 +130,53 @@ Player::Player(QWidget *parent)
 
         controls->setEnabled(false);
         playlistView->setEnabled(false);
-        openButton->setEnabled(false);
+        //openButton->setEnabled(false);
 #ifndef PLAYER_NO_COLOROPTIONS
         colorButton->setEnabled(false);
 #endif
         fullScreenButton->setEnabled(false);
     }
 
-    metaDataChanged();
+    //metaDataChanged();
 
-    QStringList arguments = qApp->arguments();
-    arguments.removeAt(0);
-    addToPlaylist(arguments);
+//    QStringList arguments = qApp->arguments();
+//    arguments.removeAt(0);
+    QString title;
+    for(int i=0;i<formInfos->size();i++){
+        if(title.isEmpty()){
+            title = formInfos->at(i) + " - ";
+        }
+        else if(i == formInfos->size()-1){
+            title = title + formInfos->at(i);
+        }
+        else{
+            title = title + formInfos->at(i) + " - ";
+
+        }
+    }
+    this->setStatusInfo(title);
+    addToPlaylist(filename);
 
     // Add to display the widget
     show();
+    controls->play();
 }
 
 Player::~Player()
 {
+
 }
 
 void Player::open()
 {
-    QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open Files"));
-    addToPlaylist(fileNames);
+//    QStringList fileNames = QFileDialog::getOpenFileNames(this, tr("Open Files"));
+//    addToPlaylist(fileNames);
 }
 
-void Player::addToPlaylist(const QStringList& fileNames)
+void Player::addToPlaylist(QString& fileNames)
 {
-    foreach (QString const &argument, fileNames) {
-        QFileInfo fileInfo(argument);
+        QFileInfo fileInfo(fileNames);
+        qDebug()<<fileNames;
         if (fileInfo.exists()) {
             QUrl url = QUrl::fromLocalFile(fileInfo.absoluteFilePath());
             if (fileInfo.suffix().toLower() == QLatin1String("m3u")) {
@@ -168,12 +184,11 @@ void Player::addToPlaylist(const QStringList& fileNames)
             } else
                 playlist->addMedia(url);
         } else {
-            QUrl url(argument);
+            QUrl url(fileNames);
             if (url.isValid()) {
                 playlist->addMedia(url);
             }
         }
-    }
 }
 
 void Player::durationChanged(qint64 duration)
@@ -246,13 +261,13 @@ void Player::statusChanged(QMediaPlayer::MediaStatus status)
     case QMediaPlayer::LoadedMedia:
     case QMediaPlayer::BufferingMedia:
     case QMediaPlayer::BufferedMedia:
-        setStatusInfo(QString());
+        //setStatusInfo(QString());
         break;
     case QMediaPlayer::LoadingMedia:
-        setStatusInfo(tr("Loading..."));
+        //setStatusInfo(tr("Loading..."));
         break;
     case QMediaPlayer::StalledMedia:
-        setStatusInfo(tr("Media Stalled"));
+        //setStatusInfo(tr("Media Stalled"));
         break;
     case QMediaPlayer::EndOfMedia:
         QApplication::alert(this);
@@ -304,18 +319,18 @@ void Player::videoAvailableChanged(bool available)
 
 void Player::setTrackInfo(const QString &info)
 {
-    trackInfo = info;
+    /*trackInfo = info;
     if (!statusInfo.isEmpty())
         setWindowTitle(QString("%1 | %2").arg(trackInfo).arg(statusInfo));
     else
-        setWindowTitle(trackInfo);
+        setWindowTitle(trackInfo);*/
 }
 
 void Player::setStatusInfo(const QString &info)
 {
     statusInfo = info;
     if (!statusInfo.isEmpty())
-        setWindowTitle(QString("%1 | %2").arg(trackInfo).arg(statusInfo));
+        setWindowTitle(statusInfo);
     else
         setWindowTitle(trackInfo);
 }
