@@ -11,7 +11,15 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 #include "model/player.h"
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv/cv.h>
+#include "model/processing.h"
 
+using namespace cv;
+using namespace std;
 
 namespace Ui {
 class principal;
@@ -34,7 +42,7 @@ private:
     QLineEdit *nom;
     QLineEdit *date;
     QLineEdit *lieu;
-
+    QThread *thread;
 
 public slots:
 

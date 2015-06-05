@@ -1,13 +1,23 @@
 #include "processing.h"
 
-Processing::Processing(QObject *parent) :
-    QObject(parent)
-{
+//Processing::Processing(QObject *parent) :
+//    QObject(parent)
+//{
+//}
+
+Processing::Processing(VideoCapture _cap) {
+    this->cap = _cap;
 }
 
-Processing::Processing(int _id) {
-    this->id = _id;
-    //this->result = new Result();
+void Processing::run()
+{
+    double count = this->cap.get(CV_CAP_PROP_FRAME_COUNT);
+    Mat frame;
+    for(int i=0;i<(int)count;i+=10){
+        this->cap.set(CV_CAP_PROP_POS_FRAMES, i);
+        this->cap >> frame;
+    }
+    qDebug() <<"Thread finish";
 }
 
 int Processing::GetId() {

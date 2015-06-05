@@ -135,7 +135,6 @@ void principal::onClick_selectSourcePathImage(){
 }
 
 void principal::onClick_validAnalysis(){
-     qDebug()<<"Lancement du Media Player";
      bool valid = false;
      QStringList *FormList = new QStringList();
      if(!this->nom->text().trimmed().isEmpty() && !this->date->text().trimmed().isEmpty() && !this->lieu->text().trimmed().isEmpty() && !this->vidima->text().trimmed().isEmpty()){
@@ -147,6 +146,17 @@ void principal::onClick_validAnalysis(){
      }
      if(valid){
          Player* player = new Player(0,this->vidima->text(), FormList);
+         QFileInfo video(this->vidima->text());
+         if(video.exists()){
+            const string path = this->vidima->text().toLocal8Bit().constData();
+            VideoCapture cap(path);
+             if(!cap.isOpened()){
+                 qDebug() <<"Cannot open file";
+             }else{
+                Processing *proc = new Processing(cap);
+                proc->start();
+             }
+         }
      }
      //player.addToPlaylist(this->filename);
 }

@@ -1,7 +1,6 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
 #include "principal.h"
-#include "dbconnection.h"
 #include <QtSql>
 #include "model/security/cryptography.h"
 #include "model/database/SQLConnection.h"

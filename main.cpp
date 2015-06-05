@@ -1,7 +1,6 @@
 #include "principal.h"
 #include <QApplication>
 #include "loginwindow.h"
-#include "dbconnection.h"
 
 #include <QDebug>
 #include "model/library.h"

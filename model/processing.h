@@ -1,27 +1,34 @@
 #ifndef PROCESSING_H
 #define PROCESSING_H
 
-#include <QObject>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv/cv.h>
+#include <QThread>
+#include <QDebug>
+#include "model/result.h"
 
-#include "result.h"
+using namespace cv;
 
-class Processing : public QObject
+class Processing : public QThread
 {
     Q_OBJECT
 public:
-    /*!
-     *  \brief Constructeur
-     *      Constructeur de la classe Processing
-     *  \param parent : Objet parent
-     */
-    explicit Processing(QObject *parent = 0);
+//    /*!
+//     *  \brief Constructeur
+//     *      Constructeur de la classe Processing
+//     *  \param parent : Objet parent
+//     */
+//    explicit Processing(QObject *parent = 0);
 
     /*!
      *  \brief Constructeur
      *      Constructeur de la classe Processing
      *  \param int _id : id d'un Processing
      */
-    Processing(int _id);
+    Processing(VideoCapture _cap);
 
     /*!
      *  \brief GetId()
@@ -53,7 +60,11 @@ public:
     
 private:
     int id;
+    VideoCapture cap;
     Result *result;
+
+protected:
+     void run();
      
 signals:
     
