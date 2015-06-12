@@ -7,6 +7,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv/cv.h>
 #include <QThread>
+#include <QList>
 #include <QDebug>
 #include "model/result.h"
 
@@ -57,11 +58,14 @@ public:
      *  \param Result *_result : resultat
      */
     void SetResult(Result *_result);
+
+    void MatchingMethod( int, void*, Mat img);
     
 private:
     int id;
     VideoCapture cap;
     Result *result;
+    QList<Mat> *frameList;
 
 protected:
      void run();
