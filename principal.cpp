@@ -117,10 +117,13 @@ void principal::onClick_validAjoutPoisson(){
         this->createFolder(currentPath,ImageList->at(0));
         qDebug()<<*currentPath;
         qDebug()<<ImageList->at(2);
+        // Récupération des fichiers deja present dans l'arbo //
+        // TODO - Get le dernier indice increment //
         // Enregistrement des Images //
         for(int i = 2; i < ImageList->count(); ++i)
         {
-            QFile::copy(ImageList->at(i), *currentPath + "/clowfish3.png");
+            QFileInfo fi(ImageList->at(i));
+            QFile::copy(ImageList->at(i), *currentPath + "/" + ImageList->at(0) + "." + fi.suffix());
         }
     }
 }
