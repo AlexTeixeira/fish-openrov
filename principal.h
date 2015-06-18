@@ -36,6 +36,7 @@ public:
 private:
     Ui::principal *ui;
     void deletItem(QFormLayout *layoutContenu);
+    void createFolder(QString *currentPath, QString name);
     QString windowType;
     QListWidget* image;
     QLineEdit *vidima;

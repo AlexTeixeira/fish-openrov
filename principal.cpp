@@ -100,19 +100,36 @@ void principal::onClick_showAjouterPoisson(){
 
 void principal::onClick_validAjoutPoisson(){
     QStringList *ImageList = new QStringList();
-    if(!this->poisson->text().trimmed().isEmpty() && !this->lieu2->text().trimmed().isEmpty()){
+    if(!this->poisson->text().trimmed().isEmpty() && !this->lieu2->text().trimmed().isEmpty() && image->count() >= 1){
         ImageList->append(this->poisson->text());
         ImageList->append(this->lieu2->text());
+        for(int i = 0; i < image->count(); ++i)
+        {
+            QListWidgetItem* item = image->item(i);
+            ImageList->append(item->text());
+        }
+        qDebug()<<*ImageList;
+        // Création de l'Arborescence //
+        QString *currentPath = new QString();
+        *currentPath = QCoreApplication::applicationDirPath();
+        this->createFolder(currentPath,"images");
+        this->createFolder(currentPath,ImageList->at(1));
+        this->createFolder(currentPath,ImageList->at(0));
+        qDebug()<<*currentPath;
+        qDebug()<<ImageList->at(2);
+        // Enregistrement des Images //
+        for(int i = 2; i < ImageList->count(); ++i)
+        {
+            QFile::copy(ImageList->at(i), *currentPath + "/clowfish3.png");
+        }
     }
-    for(int i = 0; i < image->count(); ++i)
-    {
-        QListWidgetItem* item = image->item(i);
-        ImageList->append(item->text());
+}
+
+void principal::createFolder(QString *currentPath,QString name){
+    currentPath->append("/" + name);
+    if(!QDir(*currentPath).exists()){
+        QDir().mkdir(*currentPath);
     }
-    qDebug()<<*ImageList;
-    // Création de l'Arborescence //
-    QString currentPath = QCoreApplication::applicationDirPath();
-    qDebug()<<currentPath;
 }
 
 void principal::onClick_showTelechargerPoisson(){
