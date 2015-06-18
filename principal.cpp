@@ -79,8 +79,8 @@ void principal::onClick_showAjouterPoisson(){
 
     deletItem(ui->layoutContenu);
 
-    QLineEdit *poisson = new QLineEdit;
-    QLineEdit *lieu2 = new QLineEdit;
+    this->poisson = new QLineEdit;
+    this->lieu2 = new QLineEdit;
     this->image = new QListWidget;
 
     ui->layoutContenu->addRow("Poisson", poisson);
@@ -92,10 +92,27 @@ void principal::onClick_showAjouterPoisson(){
     ui->layoutContenu->addRow(parcourir);
 
     QPushButton *boutonAnalyser = new QPushButton("Valider");
+    connect(boutonAnalyser, SIGNAL(clicked()), this, SLOT(onClick_validAjoutPoisson()));
     ui->layoutContenu->addRow(boutonAnalyser);
 
-
     ui->TitleLabel->setText("Ajout de poissons");
+}
+
+void principal::onClick_validAjoutPoisson(){
+    QStringList *ImageList = new QStringList();
+    if(!this->poisson->text().trimmed().isEmpty() && !this->lieu2->text().trimmed().isEmpty()){
+        ImageList->append(this->poisson->text());
+        ImageList->append(this->lieu2->text());
+    }
+    for(int i = 0; i < image->count(); ++i)
+    {
+        QListWidgetItem* item = image->item(i);
+        ImageList->append(item->text());
+    }
+    qDebug()<<*ImageList;
+    // Création de l'Arborescence //
+    QString currentPath = QCoreApplication::applicationDirPath();
+    qDebug()<<currentPath;
 }
 
 void principal::onClick_showTelechargerPoisson(){

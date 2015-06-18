@@ -43,6 +43,8 @@ private:
     QLineEdit *date;
     QLineEdit *lieu;
     QThread *thread;
+    QLineEdit *poisson;
+    QLineEdit *lieu2;
 
 public slots:
 
@@ -52,6 +54,7 @@ public slots:
     void onClick_selectSourcePath();
     void onClick_selectSourcePathImage();
     void onClick_validAnalysis();
+    void onClick_validAjoutPoisson();
 };
 
 #endif // PRINCIPAL_H
