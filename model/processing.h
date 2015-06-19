@@ -8,10 +8,12 @@
 #include <opencv/cv.h>
 #include <QThread>
 #include <QList>
+#include <QDir>
 #include <QDebug>
 #include "model/result.h"
 
 using namespace cv;
+using namespace std;
 
 class Processing : public QThread
 {
@@ -29,7 +31,7 @@ public:
      *      Constructeur de la classe Processing
      *  \param int _id : id d'un Processing
      */
-    Processing(VideoCapture _cap);
+    Processing(VideoCapture _cap, QString path);
 
     /*!
      *  \brief GetId()
@@ -59,13 +61,18 @@ public:
      */
     void SetResult(Result *_result);
 
-    void MatchingMethod( int, void*, Mat img);
+    void MatchingMethod(int, void*, Mat img);
     
 private:
     int id;
     VideoCapture cap;
     Result *result;
+    QString path;
     QList<Mat> *frameList;
+    QList<Mat> *fishList;
+    Mat fish;
+    void getFishList(QString path);
+    void getSubFolders(QStringList *dirList);
 
 protected:
      void run();

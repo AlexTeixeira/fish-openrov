@@ -5,8 +5,21 @@
 //{
 //}
 
-Processing::Processing(VideoCapture _cap) {
+Processing::Processing(VideoCapture _cap, QString path) {
     this->cap = _cap;
+    this->path = path;
+    this->fishList = new QList<Mat>;
+    qDebug()<<this->path;
+    QStringList *dirList = new QStringList;
+    this->getSubFolders(dirList);
+    foreach(QString sub, *dirList)
+    {
+        if( sub != "." && sub != ".."){
+            QString *newPath = new QString;
+            newPath->append(this->path+"/"+sub);
+            this->getFishList(*newPath);
+        }
+    }
 }
 
 void Processing::run()
@@ -19,11 +32,28 @@ void Processing::run()
         this->cap >> frame;
         this->frameList->push_back(frame);
     }
-    qDebug() <<"Thread finish";
-    //MatchingMethod(0,0,frame);
     for(int j=0;j<this->frameList->count();j++){
-        qDebug() << j;
-        MatchingMethod(0,0,this->frameList->at(j));
+        //MatchingMethod(0,0,this->frameList->at(j));
+    }
+    qDebug() <<"Thread finish";
+}
+
+void Processing::getSubFolders(QStringList *dirList){
+    QDir dir(this->path);
+    *dirList = dir.entryList();
+}
+
+void Processing::getFishList(QString path){
+    QDir dir(path);
+    QStringList nameFilter;
+    nameFilter << "*.png" << "*.jpg" << "*.bmp" << "*.tiff" << "*.ppm" << "*.jpeg";
+    QFileInfoList list = dir.entryInfoList(nameFilter, QDir::Files);
+    this->fishList = new QList<Mat>;
+    foreach(QFileInfo item, list)
+    {
+        if(item.isFile())
+            this->fish = imread(item.absoluteFilePath().toLocal8Bit().constData(), 1);
+            this->fishList->push_back(fish);
     }
 }
 
@@ -74,7 +104,6 @@ void Processing::MatchingMethod(int, void*, Mat img)
   Point matchLoc;
 
   minMaxLoc( result, &minVal, &maxVal, &minLoc, &maxLoc, Mat() );
-
 
   if( match_method  == CV_TM_SQDIFF || match_method == CV_TM_SQDIFF_NORMED )
     { matchLoc = minLoc; }

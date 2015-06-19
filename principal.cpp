@@ -186,6 +186,9 @@ void principal::onClick_selectSourcePathImage(){
 void principal::onClick_validAnalysis(){
      bool valid = false;
      QStringList *FormList = new QStringList();
+     QString *currentPath = new QString();
+     *currentPath = QCoreApplication::applicationDirPath();
+     currentPath->append("/images/" + this->lieu->text());
      if(!this->nom->text().trimmed().isEmpty() && !this->date->text().trimmed().isEmpty() && !this->lieu->text().trimmed().isEmpty() && !this->vidima->text().trimmed().isEmpty()){
          FormList->append(this->nom->text());
          FormList->append(this->date->text());
@@ -202,10 +205,9 @@ void principal::onClick_validAnalysis(){
              if(!cap.isOpened()){
                  qDebug() <<"Cannot open file";
              }else{
-                Processing *proc = new Processing(cap);
+                Processing *proc = new Processing(cap, *currentPath);
                 proc->start();
              }
          }
      }
-     //player.addToPlaylist(this->filename);
 }
