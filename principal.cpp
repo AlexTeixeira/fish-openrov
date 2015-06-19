@@ -118,12 +118,24 @@ void principal::onClick_validAjoutPoisson(){
         qDebug()<<*currentPath;
         qDebug()<<ImageList->at(2);
         // Récupération des fichiers deja present dans l'arbo //
-        // TODO - Get le dernier indice increment //
+        QDir dir(*currentPath);
+        QStringList nameFilter;
+        nameFilter << "*.png" << "*.jpg" << "*.bmp" << "*.tiff" << "*.ppm" << "*.jpeg";
+        QFileInfoList list = dir.entryInfoList(nameFilter, QDir::Files);
+        int *indice = new int;
+        *indice = 0;
+        foreach(QFileInfo item, list)
+        {
+            if(item.isFile())
+                *indice = item.baseName().right(1).toInt();
+        }
+        *indice+=1;
         // Enregistrement des Images //
         for(int i = 2; i < ImageList->count(); ++i)
         {
             QFileInfo fi(ImageList->at(i));
-            QFile::copy(ImageList->at(i), *currentPath + "/" + ImageList->at(0) + "." + fi.suffix());
+            QFile::copy(ImageList->at(i), *currentPath + "/" + ImageList->at(0) + QString::number(*indice) + "." + fi.suffix());
+            *indice+=1;
         }
     }
 }
