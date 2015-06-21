@@ -25,7 +25,7 @@ AddUser::~AddUser()
 void AddUser::UserAdd(){
 
     SQLConnection *sqlConnection = new SQLConnection(this);
-    sqlConnection->getSQLInstance(QDir::currentPath()+"/fish.db");
+    sqlConnection->getSQLInstance(QCoreApplication::applicationDirPath()+"/fish.db");
     QSqlQuery query;
     if(ui->userNamefield->text().count()<50){
         if(ui->passwordField->text().count()<50){

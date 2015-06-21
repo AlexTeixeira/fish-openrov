@@ -1,4 +1,5 @@
 #include "principal.h"
+#include "qmessagebox.h"
 #include "ui_principal.h"
 
 principal::principal(QString windowType, QWidget *parent) :
@@ -140,6 +141,10 @@ void principal::onClick_validAjoutPoisson(){
             QFile::copy(ImageList->at(i), *currentPath + "/" + ImageList->at(0) + QString::number(*indice) + "." + fi.suffix());
             *indice+=1;
         }
+        // MessageBox de Fin //
+        QMessageBox messageBox;
+        messageBox.information(0,"Ajout d'images","Image(s) Sample(s) correctement ajoutées !");
+        messageBox.setFixedSize(500,200);
     }
 }
 

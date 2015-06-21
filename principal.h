@@ -8,6 +8,7 @@
 #include <QFormLayout>
 #include <QFileDialog>
 #include <QColor>
+#include <QDialog>
 #include <QListWidget>
 #include <QListWidgetItem>
 #include "model/player.h"

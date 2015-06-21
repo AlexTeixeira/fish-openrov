@@ -28,7 +28,7 @@ void EditUser::UserEdit(){
 
     if(ui->passwordField->text() == ui->confirmPasswordField->text()){
         SQLConnection *sqlConnection = new SQLConnection(this);
-        sqlConnection->getSQLInstance(QDir::currentPath()+"/fish.db");
+        sqlConnection->getSQLInstance(QCoreApplication::applicationDirPath()+"/fish.db");
         QSqlQuery query;
         if(ui->passwordField->text().count()<50){
             query.exec("UPDATE users SET PASSWORD ='"+Cryptography::hash(ui->confirmPasswordField->text())+"' WHERE USERNAME='"+username+"'");

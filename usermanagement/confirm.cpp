@@ -46,7 +46,7 @@ Confirm::~Confirm()
 void Confirm::confirmDelete(){
 
     SQLConnection *sqlConnection = new SQLConnection(this);
-    sqlConnection->getSQLInstance(QDir::currentPath()+"/fish.db");
+    sqlConnection->getSQLInstance(QCoreApplication::applicationDirPath()+"/fish.db");
     QSqlQuery query;
 
     query.exec("DELETE FROM users WHERE USERNAME='"+username+"'");
@@ -59,7 +59,7 @@ void Confirm::confirmDelete(){
 void Confirm::confirmDemote(){
 
     SQLConnection *sqlConnection = new SQLConnection(this);
-    sqlConnection->getSQLInstance(QDir::currentPath()+"/fish.db");
+    sqlConnection->getSQLInstance(QCoreApplication::applicationDirPath()+"/fish.db");
     QSqlQuery query;
 
     query.exec("UPDATE users SET ISADMIN='0' WHERE USERNAME='"+username+"'");
@@ -71,7 +71,7 @@ void Confirm::confirmDemote(){
 void Confirm::confirmPromote(){
     qDebug()<<username;
     SQLConnection *sqlConnection = new SQLConnection(this);
-    sqlConnection->getSQLInstance(QDir::currentPath()+"/fish.db");
+    sqlConnection->getSQLInstance(QCoreApplication::applicationDirPath()+"/fish.db");
     QSqlQuery query;
 
     query.exec("UPDATE users SET ISADMIN ='1' WHERE USERNAME='"+username+"'");

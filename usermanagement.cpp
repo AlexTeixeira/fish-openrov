@@ -36,7 +36,7 @@ UserManagement::~UserManagement()
 QList<User*> UserManagement::getAllUsers(){
     users.clear();
     SQLConnection *sqlConnection = new SQLConnection(this);
-    sqlConnection->getSQLInstance(QDir::currentPath()+"/fish.db");
+    sqlConnection->getSQLInstance(QCoreApplication::applicationDirPath()+"/fish.db");
     QSqlQuery query;
 
     if(query.exec("SELECT * FROM users")){

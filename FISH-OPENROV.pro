@@ -36,6 +36,7 @@ SOURCES += main.cpp \
     model/security/cryptography.cpp \
     model/database/sqlconnection.cpp \
     #User Manangement #
+    model/user.cpp \
     usermanagement.cpp \
     usermanagement/adduser.cpp \
     usermanagement/confirm.cpp \
@@ -61,6 +62,7 @@ HEADERS += model/xmlobject.h \
     model/security/cryptography.h \
     model/database/sqlconnection.h \
     #User Manangement #
+    model/user.h \
     usermanagement.h \
     usermanagement/adduser.h \
     usermanagement/confirm.h \
