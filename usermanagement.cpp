@@ -87,11 +87,19 @@ void UserManagement::openEditUser(){
 }
 
 void UserManagement::openConfirmDelete(){
-    QTableWidgetItem *item = ui->tableWidget->item(ui->tableWidget->currentRow(), 0);
-    if(item!=NULL){
-        QString username = item->text();
-        Confirm *confirm = new Confirm(this, username, "");
-        confirm->show();
+
+    if(users.count()==1){
+        QMessageBox messageBox;
+        messageBox.critical(0,"Erreur","Vous ne pouvez pas supprimer le dernier utilisateur");
+        messageBox.setFixedSize(500,200);
+    } else {
+        QTableWidgetItem *item = ui->tableWidget->item(ui->tableWidget->currentRow(), 0);
+        if(item!=NULL){
+            QString username = item->text();
+            Confirm *confirm = new Confirm(this, username, "");
+            confirm->show();
+    }
+
     }
 
 

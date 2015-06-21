@@ -4,6 +4,7 @@
 #include "QtSql"
 #include "qdebug.h"
 #include "qmessagebox.h"
+#include "model/security/cryptography.h"
 
 EditUser::EditUser(QString username, QWidget *parent) :
     QDialog(parent),
@@ -30,7 +31,7 @@ void EditUser::UserEdit(){
         sqlConnection->getSQLInstance(QDir::currentPath()+"/fish.db");
         QSqlQuery query;
         if(ui->passwordField->text().count()<50){
-            query.exec("UPDATE users SET PASSWORD ='"+ui->confirmPasswordField->text()+"' WHERE USERNAME='"+username+"'");
+            query.exec("UPDATE users SET PASSWORD ='"+Cryptography::hash(ui->confirmPasswordField->text())+"' WHERE USERNAME='"+username+"'");
         } else {
             QMessageBox messageBox;
             messageBox.critical(0,"Erreur","Le mot de passe doit compter moins de 50 caractères");
