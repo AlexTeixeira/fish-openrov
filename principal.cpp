@@ -18,6 +18,8 @@ principal::principal(QString windowType, QWidget *parent) :
     // Je connecte le bouton "Télécharger librairie(btn_telechargerPoisson" à la méthode "onClick_showTelechargerPoisson()"
     connect(ui->btn_telechargerPoisson, SIGNAL(clicked()), this, SLOT(onClick_showTelechargerPoisson()));
 
+    connect(ui->userManagerButton, SIGNAL(clicked()), this, SLOT(openUserManagement()));
+
     //couleur layout menu
     QColor *backgroundColour = new QColor();
     backgroundColour->setRgb(91,155,213); //example colour, I could later manage to utilize this variable with a QColorDialog
@@ -40,6 +42,7 @@ principal::principal(QString windowType, QWidget *parent) :
 
     if(this->windowType == "student"){
         ui->btn_ajoutPoisson->setEnabled(false);
+        ui->userManagerButton->setEnabled(false);
     }
 
 }
@@ -210,4 +213,9 @@ void principal::onClick_validAnalysis(){
              }
          }
      }
+}
+
+void principal::openUserManagement(){
+    UserManagement *userManagement = new UserManagement(this);
+    userManagement->show();
 }

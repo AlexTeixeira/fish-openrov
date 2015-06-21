@@ -17,6 +17,7 @@
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv/cv.h>
 #include "model/processing.h"
+#include "usermanagement.h"
 
 using namespace cv;
 using namespace std;
@@ -56,6 +57,7 @@ public slots:
     void onClick_selectSourcePathImage();
     void onClick_validAnalysis();
     void onClick_validAjoutPoisson();
+    void openUserManagement();
 };
 
 #endif // PRINCIPAL_H

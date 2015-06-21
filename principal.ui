@@ -170,6 +170,19 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
+  <widget class="QPushButton" name="userManagerButton">
+   <property name="geometry">
+    <rect>
+     <x>884</x>
+     <y>20</y>
+     <width>121</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Gérer les utilisateurs</string>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="resources.qrc"/>

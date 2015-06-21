@@ -34,7 +34,12 @@ SOURCES += main.cpp \
     model/videowidget.cpp   \
     loginwindow.cpp \
     model/security/cryptography.cpp \
-    model/database/sqlconnection.cpp
+    model/database/sqlconnection.cpp \
+    #User Manangement #
+    usermanagement.cpp \
+    usermanagement/adduser.cpp \
+    usermanagement/confirm.cpp \
+    usermanagement/edituser.cpp \
 
 HEADERS += model/xmlobject.h \
     model/fish.h \
@@ -54,14 +59,24 @@ HEADERS += model/xmlobject.h \
     model/videowidget.h \
     loginwindow.h \
     model/security/cryptography.h \
-    model/database/sqlconnection.h
+    model/database/sqlconnection.h \
+    #User Manangement #
+    usermanagement.h \
+    usermanagement/adduser.h \
+    usermanagement/confirm.h \
+    usermanagement/edituser.h
 
 maemo* {
     DEFINES += PLAYER_NO_COLOROPTIONS
 }
 
 FORMS += principal.ui \
-        loginwindow.ui
+        loginwindow.ui \
+        #User Manangement #
+        usermanagement.ui \
+        usermanagement/adduser.ui \
+        usermanagement/confirm.ui \
+        usermanagement/edituser.ui
 
 INCLUDEPATH += C:/opencv/build/include
 

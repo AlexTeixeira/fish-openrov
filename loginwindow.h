@@ -19,10 +19,10 @@ public:
 
 private:
     Ui::LoginWindow *ui;
-    QString adminUsername = "admin";
-    QString adminPassword = "admin";
-    QString studentUsername = "user";
-    QString studentPassword = "user";
+//    QString adminUsername = "admin";
+//    QString adminPassword = "admin";
+//    QString studentUsername = "user";
+//    QString studentPassword = "user";
 
 signals:
 
