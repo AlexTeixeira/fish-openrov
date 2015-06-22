@@ -70,6 +70,7 @@ void UserManagement::fillUserList(){
 
             i++;
     }
+      ui->tableWidget->setHorizontalHeaderLabels(QString("Nom d'utilisateur;Statut Admin").split(";"));
 }
 
 void UserManagement::openAddUser(){
