@@ -27,7 +27,8 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::checkLogin(){
     SQLConnection *sqlConnection = new SQLConnection(this);
-    sqlConnection->getSQLInstance(QDir::currentPath()+"/fish.db");
+    QString path = QDir::currentPath();
+    sqlConnection->getSQLInstance(QDir::currentPath()+"/debug/fish.db");
     QSqlQuery query;
     if(query.exec("SELECT username, password, isAdmin FROM users WHERE username=='"+ui->lineEdit->text()+"' AND password=='"+Cryptography::hash(ui->lineEdit_2->text())+"'")){
         principal *_principal;
